@@ -10,7 +10,8 @@ The package helps to load MetaPerson avatars in GLB/GLTF format in Unity.
 You have two options to get started: you can import this package and the sample via Unity Package Manager or clone the repository and run the sample from it.
 
 ### Import Via Package Manager
-1. To import the [glTFast](https://github.com/atteneder/glTFast) package as a dependency of **MetaPerson Loader**, add a new Scoped Registry to *Project Settings -> Package Manager*:
+1\. To import the [glTFast](https://github.com/atteneder/glTFast) package as a dependency of **MetaPerson Loader**, add a new Scoped Registry to *Project Settings -> Package Manager*:
+
 ```json
 "scopedRegistries": [
   {
@@ -24,25 +25,36 @@ You have two options to get started: you can import this package and the sample 
 ```
 ![Add Scoped Registry](./Documentation~/Images/add_scoped_registry.JPG "Add Scoped Registry")
 
-2. Open *Window->Package Manager*, click on the **+** icon in the top left corner and select **Add Package From Git URL**.
+2\. Open *Window->Package Manager*, click on the **+** icon in the top left corner and select **Add Package From Git URL**.
 
 ![Add Package From Git Url](./Documentation~/Images/add_package_from_git_url.jpg "Add Package From Git Url")
 
-3. Provide the Git URL of this project:
+3\. Provide the Git URL of this project:
+
 `https://github.com/avatarsdk/metaperson-loader-unity.git`
-4. Import **MetaPerson Loader Sample** as well.
+
+4\. Import **MetaPerson Loader Sample** as well.
+
 ![Import Sample](./Documentation~/Images/import_sample.jpg "Import Sample")
-5. Open the `Assets/Samples/MetaPerson Loader/0.1.0/MetaPerson Loader Sample/Scenes/MetaPersonLoaderSample.unity` scene.
-6. Run the scene and click the "Load Avatar" button.
-7. The avatar will be downloaded and added to the scene.
+
+5\. Open the `Assets/Samples/MetaPerson Loader/0.1.0/MetaPerson Loader Sample/Scenes/MetaPersonLoaderSample.unity` scene.
+
+6\. Run the scene and click the "Load Avatar" button.
+
+7\. The avatar will be downloaded and added to the scene.
+
 ![MetaPerson model](./Documentation~/Images/metaperson_model.JPG "MetaPerson Model")
 
 ### Copy Repository And Run Sample Project
-1. Clone this repository to your computer.
-2. Open the project from `metaperson-loader-unity\Samples~\MetaPersonLoaderSample` directory in Unity 2021.3.19f1 or a newer.
-3. Open the `Assets/AvatarSDK/MetaPersonLoader/Sample/Scenes/MetaPersonLoaderSample.unity` scene.
-4. Run the scene and click the "Load Avatar" button.
-5. The avatar will be downloaded and added to the scene.
+1\. Clone this repository to your computer.
+
+2\. Open the project from `metaperson-loader-unity\Samples~\MetaPersonLoaderSample` directory in Unity 2021.3.19f1 or a newer.
+
+3\. Open the `Assets/AvatarSDK/MetaPersonLoader/Sample/Scenes/MetaPersonLoaderSample.unity` scene.
+
+4\. Run the scene and click the "Load Avatar" button.
+
+5\. The avatar will be downloaded and added to the scene.
 
 #### Changing The Loaded Model
 To load another model, provide a URL to the GLB/GLTF model or a ZIP archive containing such a model. Update the **Model Url** field in the **Meta Person Sample** script.
