@@ -12,6 +12,14 @@
       },
       "url": "https://package.openupm.com"
     },
+    "com.avatarsdk.metaperson.loader": {
+      "version": "file:../../..",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.atteneder.gltfast": "5.0.4"
+      }
+    },
     "com.unity.burst": {
       "version": "1.6.6",
       "depth": 1,

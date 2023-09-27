@@ -1,0 +1,35 @@
+{
+  "name": "com.avatarsdk.metaperson.loader",
+  "version": "0.1.0",
+  "displayName": "MetaPerson Loader",
+  "description": "This package provides scripts and shaders to load MetaPerson avatars.",
+  "unity": "2021.3",
+  "unityRelease": "19f1",
+  "dependencies": {
+    "com.atteneder.gltfast": "5.0.4"
+ },
+ "keywords": [
+    "avatar",
+    "avatar sdk",
+    "metaperson",
+    "metaverse",
+    "3d avatar",
+    "realistic avatar",
+    "glb",
+    "gltf",
+    "avatar loader",
+    "model"
+  ],
+  "author": {
+    "name": "itSeez3D Inc",
+    "email": "support@avatarsdk.com",
+    "url": "https://avatarsdk.com/"
+  },
+  "samples": [
+    {
+      "displayName": "MetaPerson Loader Sample",
+      "description": "This sample demonstrates how to load MetaPerson avatar.",
+      "path": "Samples~/MetaPersonLoaderSample/Assets/AvatarSDK/MetaPersonLoader/Sample"
+    }
+  ]
+}

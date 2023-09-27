@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.atteneder.gltfast": "5.0.4",
+    "com.avatarsdk.metaperson.loader": "file:../../..",
     "com.unity.collab-proxy": "2.0.3",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.18",
