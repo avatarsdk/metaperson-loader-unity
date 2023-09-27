@@ -25,6 +25,7 @@ You have two options to get started: you can import this package and the sample 
 ![Add Scoped Registry](./Documentation~/Images/add_scoped_registry.JPG "Add Scoped Registry")
 
 2. Open *Window->Package Manager*, click on the **+** icon in the top left corner and select **Add Package From Git URL**.
+
 ![Add Package From Git Url](./Documentation~/Images/add_package_from_git_url.jpg "Add Package From Git Url")
 
 3. Provide the Git URL of this project:
