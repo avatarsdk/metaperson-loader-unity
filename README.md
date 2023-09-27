@@ -23,8 +23,10 @@ You have two options to get started: you can import this package and the sample 
 ]
 ```
 ![Add Scoped Registry](./Documentation~/Images/add_scoped_registry.JPG "Add Scoped Registry")
+
 2. Open *Window->Package Manager*, click on the **+** icon in the top left corner and select **Add Package From Git URL**.
 ![Add Package From Git Url](./Documentation~/Images/add_package_from_git_url.jpg "Add Package From Git Url")
+
 3. Provide the Git URL of this project:
 `https://github.com/avatarsdk/metaperson-loader-unity.git`
 4. Import **MetaPerson Loader Sample** as well.
@@ -43,11 +45,12 @@ You have two options to get started: you can import this package and the sample 
 
 #### Changing The Loaded Model
 To load another model, provide a URL to the GLB/GLTF model or a ZIP archive containing such a model. Update the **Model Url** field in the **Meta Person Sample** script.
+
 ![Change model URL](./Documentation~/Images/change_model_url.JPG "Change Model URL")
 
 ## How It Works
-This package uses [glTFast](https://github.com/atteneder/glTFast) to load MetaPerson models in **GLB/GLTF** format.<br/>
-<br/>
+This package uses [glTFast](https://github.com/atteneder/glTFast) to load MetaPerson models in **GLB/GLTF** format.
+
 To load a MetaPerson model, follow these steps:
 1. Create an empty object in the scene.
 2. Add a [MetaPersonLoader](./Runtime/Scripts/MetaPersonLoader.cs) component to this object.
@@ -61,7 +64,7 @@ bool isModelLoaded = await metaPersonLoader.LoadModelAsync(modelUrl, p => Debug.
 ```
 
 ### MetaPersonMaterialGenerator
-The [MetaPersonMaterialGenerator](./Runtime/Scripts/MetaPersonMaterialGenerator.cs) component offers preconfigured materials to be used in place of the default materials provided by [glTFast](https://github.com/atteneder/glTFast). It also ensures that textures are set up correctly.<br/>
+The [MetaPersonMaterialGenerator](./Runtime/Scripts/MetaPersonMaterialGenerator.cs) component offers preconfigured materials to be used in place of the default materials provided by [glTFast](https://github.com/atteneder/glTFast). It also ensures that textures are set up correctly.
 
 This component includes the following materials:
  * **Default Material**: This material is utilized for rendering Head, Body, Eyes, Mouth, and Outfits meshes. It is based on the **Standard** opaque shader.
@@ -71,7 +74,8 @@ This component includes the following materials:
 You have the flexibility to modify these template materials to suit your specific needs, or you can implement a custom version of the **MaterialGenerator**.
 
 ## How To Get MetaPerson model In GLB Format
-Exporting models from [MetaPerson Creator](https://metaperson.avatarsdk.com/) requires having an AvatarSDK developer account.<br/>
+Exporting models from [MetaPerson Creator](https://metaperson.avatarsdk.com/) requires having an AvatarSDK developer account.
+
 Follow these steps to get it:
 * Get an AvatarSDK developer account at https://accounts.avatarsdk.com/developer/signup/
 * Create an application with Client credentials Authorization Grant at https://accounts.avatarsdk.com/developer/
