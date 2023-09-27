@@ -32,7 +32,7 @@
     {
       "displayName": "MetaPerson Loader Sample",
       "description": "This sample demonstrates how to load MetaPerson avatar.",
-      "path": "Samples~/MetaPersonLoaderSample"
+      "path": "Samples~/MetaPersonLoaderSample/Assets/AvatarSDK/MetaPersonLoader/Sample"
     }
   ]
 }

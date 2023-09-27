@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Samples~/MetaPersonLoaderSample/Library
+/Samples~/MetaPersonLoaderSample/Logs
+/Samples~/MetaPersonLoaderSample/UserSettings
+/Samples~/MetaPersonLoaderSample/MetaPersonLoaderSample.sln
+/Samples~/MetaPersonLoaderSample/AvatarSDK.MetaPerson.Loader.csproj
+/Samples~/MetaPersonLoaderSample/Assembly-CSharp.csproj
+/Samples~/MetaPersonLoaderSample/.vsconfig
