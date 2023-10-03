@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace AvatarSDK.MetaPerson.Sample
+namespace AvatarSDK.MetaPerson.Loader
 {
     /// <summary>
     /// This behavior is added to avatar heads in samples to allow rotation around y-axis by mouse.

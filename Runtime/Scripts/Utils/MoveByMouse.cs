@@ -10,7 +10,7 @@
 
 using UnityEngine;
 
-namespace AvatarSDK.MetaPerson.Sample
+namespace AvatarSDK.MetaPerson.Loader
 {
     public class MoveByMouse : RotateByMouse
     {

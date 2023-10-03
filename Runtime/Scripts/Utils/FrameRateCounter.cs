@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AvatarSDK.MetaPerson.Sample
+namespace AvatarSDK.MetaPerson.Loader
 {
     public class FrameRateCounter : MonoBehaviour
     {

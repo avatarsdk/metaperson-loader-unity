@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5568330823641383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5568330823641378}
+  - component: {fileID: 5568330823641381}
+  - component: {fileID: 5568330823641380}
+  - component: {fileID: 5568330823641379}
+  m_Layer: 0
+  m_Name: MetaPersonModel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5568330823641378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5568330823641383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5568330823641381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5568330823641383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70210d6a2b681294dbf1fe3c6759b9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelUri: 
+  avatarObject: {fileID: 5568330823641383}
+  materialGenerator: {fileID: 5568330823641380}
+--- !u!114 &5568330823641380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5568330823641383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0e57e7b9b5ac54faa7dd8396ba8777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: 2100000, guid: d90bc53dad64632409d636315753a19a, type: 2}
+  eyelashesMaterial: {fileID: 2100000, guid: f8c84e808d8a4c043b0fd6c525b4fab4, type: 2}
+  haircutMaterial: {fileID: 2100000, guid: c4ae1a362bdf43b4fbbf6782c3d0360a, type: 2}
+  glassesMaterial: {fileID: 2100000, guid: 30efb9bfd338729438be13cf41146940, type: 2}
+--- !u!114 &5568330823641379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5568330823641383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4826dbba83cd4665bfe657e2001c5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  excludedUIObjects: []
+  detectMovementsOverOtherGameObjects: 0
