@@ -5,11 +5,11 @@ This sample demonstrates how to integrate the [MetaPerson Creator](https://metap
 You can choose any other 3rd party solution with WebView component.
 
 ## Getting Started
-1. Open a sample scene. 
+1\. Open the sample scene. 
 
 You can get this sample via Unity Package Manager or clone the repository and run the sample from it.
 
-1.1. Get the sample via Package Manager.
+### Get the sample via Package Manager.
 
  * Add a new Scoped Registry to *Project Settings -> Package Manager*. This registry is required to import the [glTFast](https://github.com/atteneder/glTFast) package as a dependency.
 
@@ -24,23 +24,23 @@ You can get this sample via Unity Package Manager or clone the repository and ru
   }
 ]
 ```
-![Add Scoped Registry](./Documentation~/Images/add_scoped_registry.JPG "Add Scoped Registry")
+![Add Scoped Registry](./Images/add_scoped_registry.JPG "Add Scoped Registry")
 
  * Open *Window->Package Manager*, click on the **+** icon in the top left corner and select **Add Package From Git URL**.
  
-![Add Package From Git Url](./Documentation~/Images/add_package_from_git_url.jpg "Add Package From Git Url")
+![Add Package From Git Url](./Images/add_package_from_git_url.jpg "Add Package From Git Url")
 
  * Provide the Git URL of this project:
 
 `https://github.com/avatarsdk/metaperson-loader-unity.git`
 
- * Import **MetaPerson Creator Desktop integration Sample** as well.
+ * Import **MetaPerson Creator Desktop Integration Sample** as well.
 
-![Import Sample](./Documentation~/Images/import_desktop_integration_sample.jpg "Import Sample")
+![Import Sample](./Images/import_desktop_integration_sample.jpg "Import Sample")
 
  * Open the `Assets/Samples/MetaPerson Loader/0.1.1/MetaPerson Creator Desktop Integration Sample/Scenes/MetaPersonCreatorDesktopIntegrationSample.unity` scene.
 
-1.2. Get the sample from the repository.
+### Get the sample from the repository.
 
  * Clone this repository to your computer.
 
@@ -48,23 +48,23 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
  * Open the `Assets/AvatarSDK/MetaPerson/DesktopIntegrationSample/Scenes/MetaPersonCreatorDesktopIntegrationSample.unity` scene.
  
-2. Import [Vuplex plugin](https://store.vuplex.com/webview/windows-mac) into the project.
+2\. Import [Vuplex plugin](https://store.vuplex.com/webview/windows-mac) into the project.
 
-3. Find **SceneHandler** object and provide your [Account Credentials](#account-credentials).
+3\. Find **SceneHandler** object and provide your [Account Credentials](#account-credentials).
 
-![Account Credentials](./Documentation~/Images/account_credentials.jpg "Account Credentials")
+![Account Credentials](./Images/account_credentials.jpg "Account Credentials")
 
-4. Run the scene.
+4\. Run the scene.
 
-5. Press the **Get Avatar** button. MetaPerson Creator page will be shown.
+5\. Press the **Get Avatar** button. MetaPerson Creator page will be shown.
 
-6. Select any of the sample avatars or create your own, customize it and press **Export** button.
+6\. Select any of the sample avatars or create your own, customize it and press **Export** button.
 
-![Export Avatar](./Documentation~/Images/export_avatar.jpg "Export Avatar")
+![Export Avatar](./Images/export_avatar.JPG "Export Avatar")
 
-7. The avatar will be exported and added to the scene.
+7\. The avatar will be exported and added to the scene.
 
-![Avatar On Scene](./Documentation~/Images/avatar_on_scene.JPG "Avatar On Scene")
+![Avatar On Scene](./Images/avatar_on_scene.JPG "Avatar On Scene")
 
 ## Account Credentials
 
