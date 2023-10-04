@@ -96,20 +96,6 @@ Native samples:
  * [Android](https://github.com/avatarsdk/metaperson-android-sample)
  * [iOS](https://github.com/avatarsdk/metaperson-ios-sample)
 
-## How To Get MetaPerson model In GLB Format
-Exporting models from [MetaPerson Creator](https://metaperson.avatarsdk.com/) requires having an AvatarSDK developer account.
-
-Follow these steps to get it:
-* Get an AvatarSDK developer account at https://accounts.avatarsdk.com/developer/signup/
-* Create an application with Client credentials Authorization Grant at https://accounts.avatarsdk.com/developer/
-* Copy the `App Client ID` and `App Client Secret` from the Client Access application at https://accounts.avatarsdk.com/developer/
-![App Client Credentials](./Documentation~/Images/credentials.JPG "App Client Credentials") 
-* Download a source code of the sample page with **MetaPerson Creator**: https://metaperson.avatarsdk.com/business.html
-* Modify the source code of this page by providing your `App Client ID` and `App Client Secret` values.
-![Business Integration](./Documentation~/Images/business_integration_credentials.JPG "Business Integration")
-* Now you can open this page in a browser, open the creator and export an avatar in GLB format.
-
-Find out more information about business integration at https://docs.metaperson.avatarsdk.com/business_integration.html. 
 
 ## Support
 If you have any questions or issues with the plugin, please contact us <support@avatarsdk.com>.
