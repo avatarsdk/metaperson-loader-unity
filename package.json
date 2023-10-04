@@ -31,8 +31,13 @@
   "samples": [
     {
       "displayName": "MetaPerson Loader Sample",
-      "description": "This sample demonstrates how to load MetaPerson avatar.",
+      "description": "The sample demonstrates how to load MetaPerson avatar.",
       "path": "Samples~/MetaPersonLoaderSample/Assets/AvatarSDK/MetaPersonLoader/Sample"
+    },
+    {
+      "displayName": "MetaPerson Creator Desktop Integration Sample",
+      "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a Windows or macOS application.",
+      "path": "Samples~/MetaPersonCreatorDesktopIntegrationSample/Assets/AvatarSDK/MetaPerson/DesktopIntegrationSample"
     }
   ]
 }
