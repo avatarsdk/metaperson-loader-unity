@@ -11,9 +11,10 @@
 // Based on Unity's built-in shader source. Copyright (c) 2016 Unity Technologies. MIT license (see license.txt)
 
 using System;
+using UnityEditor;
 using UnityEngine;
 
-namespace UnityEditor
+namespace AvatarSDK.MetaPerson.Loader.Editor
 {
 	internal class StandardHaircutShaderGUI : ShaderGUI
 	{

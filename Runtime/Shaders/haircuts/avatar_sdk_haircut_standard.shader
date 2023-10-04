@@ -585,5 +585,5 @@ Shader "Avatar SDK/Standard Haircut"
     }
 
     FallBack "VertexLit"
-    CustomEditor "StandardHaircutShaderGUI"
+    CustomEditor "AvatarSDK.MetaPerson.Loader.Editor.StandardHaircutShaderGUI"
 }
