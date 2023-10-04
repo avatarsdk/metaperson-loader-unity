@@ -181,9 +181,13 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 
 		public Text progressText;
 
-		public void OnGetAvatarButtonClick()
+		private void Start()
 		{
 			progressText.text = "This sample requires Vuplex WebView for Windows and macOS: https://store.vuplex.com/webview/windows-mac";
+		}
+
+		public void OnGetAvatarButtonClick()
+		{
 			Application.OpenURL("https://store.vuplex.com/webview/windows-mac");
 		}
 	}
