@@ -78,7 +78,7 @@ To export models from the [MetaPerson Creator](https://metaperson.avatarsdk.com/
 3. **Retrieve Your App Client ID and App Client Secret:**
    Once your application is created, you can obtain your **App Client ID** and **App Client Secret** from the Developer Dashboard.
 
-![App Client Credentials](./Documentation~/Images/credentials.JPG "App Client Credentials")
+![App Client Credentials](./Images/credentials.JPG "App Client Credentials")
 
 
 Find out more information about business integration at https://docs.metaperson.avatarsdk.com/business_integration.html. 
