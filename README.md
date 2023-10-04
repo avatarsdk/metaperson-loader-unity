@@ -37,7 +37,7 @@ You have two options to get started: you can import this package and the sample 
 
 ![Import Sample](./Documentation~/Images/import_sample.jpg "Import Sample")
 
-5\. Open the `Assets/Samples/MetaPerson Loader/0.1.0/MetaPerson Loader Sample/Scenes/MetaPersonLoaderSample.unity` scene.
+5\. Open the `Assets/Samples/MetaPerson Loader/0.1.1/MetaPerson Loader Sample/Scenes/MetaPersonLoaderSample.unity` scene.
 
 6\. Run the scene and click the "Load Avatar" button.
 
@@ -86,13 +86,13 @@ This component includes the following materials:
  * **Glasses Material**: This material is utilized for rendering Glasses meshes. It is based on the [double-sided **Standard** fade shader](./Runtime/Shaders/avatar_sdk_standard_double_sided.shader).
 You have the flexibility to modify these template materials to suit your specific needs, or you can implement a custom version of the **MaterialGenerator**.
 
-## How To Integrate MetaPerson Creator In Your Application
-MetaPerson Creator web page can be integrated into your application, giving your clients the ability to create their custom avatars and import them into your product.
+## How To Integrate MetaPerson Creator Into Your Application
+[MetaPerson Creator](https://metaperson.avatarsdk.com/)  web page can be integrated into your application, giving your clients the ability to create their custom avatars and import them into your product.
 
-Unity Samples for different platforms:
+Unity samples:
  * [Windows and macOS](./Documentation~/MetaPersonCreatorDesktopIntegration.md)
  
-Native Samples:
+Native samples:
  * [Android](https://github.com/avatarsdk/metaperson-android-sample)
  * [iOS](https://github.com/avatarsdk/metaperson-ios-sample)
 
