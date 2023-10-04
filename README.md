@@ -86,6 +86,16 @@ This component includes the following materials:
  * **Glasses Material**: This material is utilized for rendering Glasses meshes. It is based on the [double-sided **Standard** fade shader](./Runtime/Shaders/avatar_sdk_standard_double_sided.shader).
 You have the flexibility to modify these template materials to suit your specific needs, or you can implement a custom version of the **MaterialGenerator**.
 
+## How To Integrate MetaPerson Creator In Your Application
+MetaPerson Creator web page can be integrated into your application, giving your clients the ability to create their custom avatars and import them into your product.
+
+Unity Samples for different platforms:
+ * [Windows and macOS](./Documentation~/MetaPersonCreatorDesktopIntegration.md)
+ 
+Native Samples:
+ * [Android](https://github.com/avatarsdk/metaperson-android-sample)
+ * [iOS](https://github.com/avatarsdk/metaperson-ios-sample)
+
 ## How To Get MetaPerson model In GLB Format
 Exporting models from [MetaPerson Creator](https://metaperson.avatarsdk.com/) requires having an AvatarSDK developer account.
 
