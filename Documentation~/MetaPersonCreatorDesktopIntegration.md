@@ -118,8 +118,7 @@ function onUnityLoaded(evt, data) {
 	let authenticationMessage = {
 		'eventName': 'authenticate',
 		'clientId': CLIENT_ID,
-		'clientSecret': CLIENT_SECRET,
-		'exportTemplateCode': '',
+		'clientSecret': CLIENT_SECRET
 	};
 	window.postMessage(authenticationMessage, '*');
 
@@ -142,14 +141,36 @@ function onUnityLoaded(evt, data) {
 window.addEventListener('message', onWindowMessage);
 ```
 
-* The **onUnityLoaded** method sets your client credentials and [export parameters](#export-parameters).
+* The **onUnityLoaded** method sets your client credentials and [export parameters](#js-api-parameters).
 * The **onWindowMessage** method handles messages received from the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page.
 * When an avatar model is exported, the corresponding **model_exported** event is received, including the URL of the model and its gender.
 * Upon receiving the **model_exported** event, the model is loaded into the scene using its URL.
 
 Implementation details can be found in the [MPCWebPageUsageSample.cs script](./../Samples~/MetaPersonCreatorDesktopIntegrationSample/Assets/AvatarSDK/MetaPerson/DesktopIntegrationSample/Scripts/DesktopUnitySampleHandler.cs).
 
-## Export Parameters
+## JS API Parameters
+The JS API allows you to configure various parameters related to authentication, export, and the user interface (UI) of the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html).
+
+### Authentication Parameters
+To ensure your application is authorized to access the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html), you need to specify your [developer credentials](#account-credentials). The following parameters are involved:
+ - **eventName:** This should be set to `authenticate`. This parameter informs the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) of the type of request you are making.
+ - **clientId:** This should be your **App Client ID** from your account.
+ - **clientSecret:** This should be your **App Client Secret** from your account.
+
+### Export Parameters
+You can customize the output of the exported avatar by specifying parameters related to file format, resolution, and other options. These parameters include:
+ - **eventName:** This should be set to `set_export_parameters` to inform the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) of the type of request you are making.
+ - **format:** Specifies the mesh format of the exported avatar. Supported formats include **gltf**, **glb**, and **fbx**.
+ - **lod:** Determines the level of detail (LOD) for the exported avatar mesh. The higher the value, the less detailed the mesh. Possible values are **1** and **2**.
+ - **textureProfile:** Specifies the texture profile for the exported avatar, defining textures' resolution and format. Available options include **4K.png**, **2K.png**, **1K.png**, **4K.jpg**, **2K.jpg**, **1K.jpg**, **4K.webp**, **2K.webp**, and **1K.webp**.
+
+### UI Parameters
+You can also customize certain aspects of the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) user interface. These parameters include:
+ - **eventName:** This should be set to `set_ui_parameters`. This parameter informs the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) of the type of request you are making.
+ - **isExportButtonVisible:** This parameter specifies whether the **export** button is visible in the UI.
+ - **closeExportDialogWhenExportCompleted:** This parameter determines whether the modal window with the export link is closed automatically after the export is completed.
+
+More information about JS API can be found here: https://docs.metaperson.avatarsdk.com/js_api.html
 
 ## Support
 If you have any questions or issues with the plugin, please contact us <support@avatarsdk.com>.

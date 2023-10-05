@@ -98,8 +98,7 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 						let authenticationMessage = {
 							'eventName': 'authenticate',
 							'clientId': CLIENT_ID,
-							'clientSecret': CLIENT_SECRET,
-							'exportTemplateCode': '',
+							'clientSecret': CLIENT_SECRET
 						};
 						window.postMessage(authenticationMessage, '*');
 
