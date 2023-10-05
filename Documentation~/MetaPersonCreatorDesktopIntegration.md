@@ -69,13 +69,13 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 ## Account Credentials
 To export models from the [MetaPerson Creator](https://metaperson.avatarsdk.com/), you'll need AvatarSDK developer account credentials. Follow these steps to obtain them:
 
-1. **Create an AvatarSDK Developer Account:**
+1. **Create an AvatarSDK Developer Account.**
    Visit the [AvatarSDK Developer Signup page](https://accounts.avatarsdk.com/developer/signup/) to create your AvatarSDK developer account. If you already have an account, you can skip this step.
 
-2. **Create an Application:**
+2. **Create an Application.**
    After successfully registering or logging in to your AvatarSDK developer account, go to the [Developer Dashboard](https://accounts.avatarsdk.com/developer/). Here, create a new application. 
 
-3. **Retrieve Your App Client ID and App Client Secret:**
+3. **Retrieve Your App Client ID and App Client Secret.**
    Once your application is created, you can obtain your **App Client ID** and **App Client Secret** from the Developer Dashboard.
 
 ![App Client Credentials](./Images/credentials.JPG "App Client Credentials")
@@ -84,6 +84,70 @@ To export models from the [MetaPerson Creator](https://metaperson.avatarsdk.com/
 Find out more information about business integration at https://docs.metaperson.avatarsdk.com/business_integration.html. 
 
 ## How It Works
+To integrate the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page into your Unity application, it should be shown in a WebView component. This sample uses the [Vuplex Web View](https://store.vuplex.com/webview/android-gecko) for this purpose.
+
+The communication between [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) and Unity is carried out through the use of the [JS API](https://docs.metaperson.avatarsdk.com/js_api.html).
+
+Here's how it works:
+
+1. Load the following page in a WebView component: `https://metaperson.avatarsdk.com/iframe.html`.
+
+2. Prior to loading the page, execute the following JavaScript code. This code subscribes to events from the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page and posts messages with authentication, export, and UI parameters:
+
+```javascript
+const CLIENT_ID = "your_client_id";
+const CLIENT_SECRET = "your_client_secret";
+
+function onWindowMessage(evt) {
+	if (evt.type === 'message') {
+		if (evt.data?.source === 'metaperson_creator') {
+			let data = evt.data;
+			let evtName = data?.eventName;
+			if (evtName === 'unity_loaded') {
+				onUnityLoaded(evt, data);
+			} else if (evtName === 'model_exported') {
+				console.log('model url: ' + data.url);
+				console.log('gender: ' + data.gender);
+				window.vuplex.postMessage(evt.data);
+			}
+		}
+	}
+}
+
+function onUnityLoaded(evt, data) {
+	let authenticationMessage = {
+		'eventName': 'authenticate',
+		'clientId': CLIENT_ID,
+		'clientSecret': CLIENT_SECRET,
+		'exportTemplateCode': '',
+	};
+	window.postMessage(authenticationMessage, '*');
+
+	let exportParametersMessage = {
+		'eventName': 'set_export_parameters',
+		'format': 'glb',
+		'lod': 1,
+		'textureProfile': '1K.jpg'
+	};
+	evt.source.postMessage(exportParametersMessage, '*');
+	
+	let uiParametersMessage = {
+		'eventName': 'set_ui_parameters',
+		'isExportButtonVisible' : true,
+		'closeExportDialogWhenExportComlpeted' : true,
+	};
+	evt.source.postMessage(uiParametersMessage, '*');
+}
+
+window.addEventListener('message', onWindowMessage);
+```
+
+* The **onUnityLoaded** method sets your client credentials and [export parameters](#export-parameters).
+* The **onWindowMessage** method handles messages received from the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page.
+* When an avatar model is exported, the corresponding **model_exported** event is received, including the URL of the model and its gender.
+* Upon receiving the **model_exported** event, the model is loaded into the scene using its URL.
+
+Implementation details can be found in the [MPCWebPageUsageSample.cs script](./../Samples~/MetaPersonCreatorDesktopIntegrationSample/Assets/AvatarSDK/MetaPerson/DesktopIntegrationSample/Scripts/DesktopUnitySampleHandler.cs).
 
 ## Export Parameters
 

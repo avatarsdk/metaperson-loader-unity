@@ -87,6 +87,7 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 									onUnityLoaded(evt, data);
 								} else if (evtName === 'model_exported') {
 									console.log('model url: ' + data.url);
+									console.log('gender: ' + data.gender);
 									window.vuplex.postMessage(evt.data);
 								}
 							}
