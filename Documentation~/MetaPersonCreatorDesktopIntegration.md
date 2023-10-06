@@ -58,7 +58,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
 **5\.** Press the **Get Avatar** button. MetaPerson Creator page will be shown.
 
-**6\.** Select any of the sample avatars or create your own, customize it and press **Export** button.
+**6\.** Select any of the sample avatars or create your own, customize it, and press the **Export** button.
 
 ![Export Avatar](./Images/export_avatar.JPG "Export Avatar")
 
