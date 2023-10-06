@@ -25,7 +25,7 @@ You have two options to get started: you can import this package and the sample 
 ```
 ![Add Scoped Registry](./Documentation~/Images/add_scoped_registry.JPG "Add Scoped Registry")
 
-2\. Open *Window->Package Manager*, click on the **+** icon in the top left corner and select **Add Package From Git URL**.
+2\. Open *Window->Package Manager*, click on the **+** icon in the top left corner, and select **Add Package From Git URL**.
 
 ![Add Package From Git Url](./Documentation~/Images/add_package_from_git_url.jpg "Add Package From Git Url")
 
@@ -48,7 +48,7 @@ You have two options to get started: you can import this package and the sample 
 ### Copy Repository And Run Sample Project
 1\. Clone this repository to your computer.
 
-2\. Open the project from `metaperson-loader-unity\Samples~\MetaPersonLoaderSample` directory in Unity 2021.3.19f1 or a newer.
+2\. Open the project from the `metaperson-loader-unity\Samples~\MetaPersonLoaderSample` directory in Unity 2021.3.19f1 or a newer.
 
 3\. Open the `Assets/AvatarSDK/MetaPersonLoader/Sample/Scenes/MetaPersonLoaderSample.unity` scene.
 
