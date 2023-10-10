@@ -1,6 +1,8 @@
 # MetaPerson Loader For Unity
 The package helps to load MetaPerson avatars in GLB/GLTF format in Unity.
 
+Watch also the [video tutorial on Youtube](https://www.youtube.com/watch?v=UT143JebgoE_channel=AvatarSDK).
+
 ## Requirements
  * Unity 2021.3.19f1 or a more recent version
  * Built-in render pipeline
