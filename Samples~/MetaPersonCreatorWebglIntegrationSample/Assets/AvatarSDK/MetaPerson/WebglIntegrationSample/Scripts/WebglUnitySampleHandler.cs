@@ -48,8 +48,8 @@ namespace AvatarSDK.MetaPerson.WebglIntegrationSample
 
             if (!isWebViewInitialized)
             {
-                //string url = "https://metaperson.avatarsdk.com/iframe_vuplex.html";
-                string url = "http://localhost:8000/iframe_vuplex.html";
+                string url = "https://metaperson.avatarsdk.com/iframe_vuplex.html";
+                
                 canvasWebViewPrefab.LogConsoleMessages = true;
 
                 await canvasWebViewPrefab.WaitUntilInitialized();
