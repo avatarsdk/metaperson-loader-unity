@@ -225,8 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf5ebb2f75062e4aa125a16a32d5db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clientId: I2B0iPMDPDn5QhMZRf7JgiC9CUd9My9BzY9SA5hE
-  clientSecret: Qv6eK6Uancup8PeJtKCUgQBzwP4u4CAqvDHHNKkXSYT7EtcEU6AJHFJta7bJZwNzvNx0Y4NGuKo1c93se1nYjj4qjAYcY7tgFiRjlsDVSEf3F2OBklxj1nGu7Fo4ZmUb
+  clientId: 
+  clientSecret: 
 --- !u!114 &446742348
 MonoBehaviour:
   m_ObjectHideFlags: 0
