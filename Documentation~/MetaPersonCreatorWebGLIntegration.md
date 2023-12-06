@@ -112,26 +112,26 @@ canvasWebViewPrefab.WebView.MessageEmitted += OnWebViewMessageReceived;
 We prepare the messages of special format in the corresponding methods:
 
 ```cs
-		private string GetAuthenticateMessage()
-        {
-            return string.Format("{{ \"eventName\" : \"authenticate\", \"clientId\" : \"{0}\", \"clientSecret\" : \"{1}\" }}"
-                       , credentials.clientId, credentials.clientSecret);
-        }
-        private string GetExportParametersMessage()
-        {
-            string format = "glb";
-            string lod = "1";
-            string textureProfile = "1K.jpg";
-            return string.Format("{{ \"eventName\" : \"set_export_parameters\", \"format\" : \"{0}\", \"lod\" : \"{1}\", \"textureProfile\" : \"{2}\" }}"
-                       , format, lod, textureProfile);
-        }
-        private string GetUiParametersMessage()
-        {
-            string isExportButtonVisible = "true";
-            string closeExportDialogWhenExportComlpeted = "true";
-            return string.Format("{{ \"eventName\" : \"set_ui_parameters\", \"isExportButtonVisible\" : \"{0}\", \"closeExportDialogWhenExportComlpeted\" : \"{1}\" }}"
-                      , isExportButtonVisible, closeExportDialogWhenExportComlpeted);
-        }
+private string GetAuthenticateMessage()
+{
+    return string.Format("{{ \"eventName\" : \"authenticate\", \"clientId\" : \"{0}\", \"clientSecret\" : \"{1}\" }}"
+       , credentials.clientId, credentials.clientSecret);
+}
+private string GetExportParametersMessage()
+{
+    string format = "glb";
+    string lod = "1";
+    string textureProfile = "1K.jpg";
+    return string.Format("{{ \"eventName\" : \"set_export_parameters\", \"format\" : \"{0}\", \"lod\" : \"{1}\", \"textureProfile\" : \"{2}\" }}"
+       , format, lod, textureProfile);
+}
+private string GetUiParametersMessage()
+{
+    string isExportButtonVisible = "true";
+    string closeExportDialogWhenExportComlpeted = "true";
+    return string.Format("{{ \"eventName\" : \"set_ui_parameters\", \"isExportButtonVisible\" : \"{0}\", \"closeExportDialogWhenExportComlpeted\" : \"{1}\" }}"
+      , isExportButtonVisible, closeExportDialogWhenExportComlpeted);
+}
 ```
 
 **Authentication message** is responsible for providing your client credentials. **Export parameters message** sets up format of file of the resulting model, level of details and texture format and size. Some of Metaperson Creator's UI Parameters can be set with the help of the **UI parameters message**.
@@ -139,19 +139,19 @@ We prepare the messages of special format in the corresponding methods:
 These messages are sent in response to the "unity_loaded" message that we receive from the iframe:
 
 ```cs
-				if (simpleEvent.eventName == "unity_loaded")
-                {
-                    string authMessage = GetAuthenticateMessage();
-                    Debug.Log("Auth: " + authMessage);
-                    canvasWebViewPrefab.WebView.PostMessage(authMessage);
-                    string exportParamsMessage = GetExportParametersMessage();
-                    Debug.Log("Export: " + exportParamsMessage);
-                    canvasWebViewPrefab.WebView.PostMessage(exportParamsMessage);
-                    string uiParamsMessage = GetUiParametersMessage();
-                    Debug.Log("Ui: " + uiParamsMessage);
-                    canvasWebViewPrefab.WebView.PostMessage(uiParamsMessage);
-                    return;
-                }
+if (simpleEvent.eventName == "unity_loaded")
+{
+    string authMessage = GetAuthenticateMessage();
+    Debug.Log("Auth: " + authMessage);
+    canvasWebViewPrefab.WebView.PostMessage(authMessage);
+    string exportParamsMessage = GetExportParametersMessage();
+    Debug.Log("Export: " + exportParamsMessage);
+    canvasWebViewPrefab.WebView.PostMessage(exportParamsMessage);
+    string uiParamsMessage = GetUiParametersMessage();
+    Debug.Log("Ui: " + uiParamsMessage);
+    canvasWebViewPrefab.WebView.PostMessage(uiParamsMessage);
+    return;
+}
 ```
 
 Implementation details can be found in the [MPCWebPageUsageSample.cs script](./../Samples~/MetaPersonCreatorWebglIntegrationSample/Assets/AvatarSDK/MetaPerson/WebglIntegrationSample/Scripts/WebglUnitySampleHandler.cs).
