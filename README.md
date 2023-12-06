@@ -92,6 +92,7 @@ You have the flexibility to modify these template materials to suit your specifi
 Unity samples:
  * [Windows and macOS](./Documentation~/MetaPersonCreatorDesktopIntegration.md)
  * [VR Quest](https://github.com/avatarsdk/metaperson-vr-quest-sample)
+ * [WebGL](./Documentation~/MetaPersonCreatorWebGLIntegration.md)
  
 Native samples:
  * [Android](https://github.com/avatarsdk/metaperson-android-sample)
