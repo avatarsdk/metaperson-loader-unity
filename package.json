@@ -38,6 +38,11 @@
       "displayName": "MetaPerson Creator Desktop Integration Sample",
       "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a Windows or macOS application.",
       "path": "Samples~/MetaPersonCreatorDesktopIntegrationSample/Assets/AvatarSDK/MetaPerson/DesktopIntegrationSample"
+    },
+    {
+      "displayName": "MetaPerson Creator WebGL Integration Sample",
+      "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a WebGL application.",
+      "path": "Samples~/MetaPersonCreatorWebglIntegrationSample/Assets/AvatarSDK/MetaPerson/WebglIntegrationSample"
     }
   ]
 }
