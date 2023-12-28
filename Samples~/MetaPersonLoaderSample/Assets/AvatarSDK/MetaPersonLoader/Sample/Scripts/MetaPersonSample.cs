@@ -23,6 +23,7 @@ namespace AvatarSDK.MetaPerson.Sample
 		public Button loadAvatarButton;
 		public Text progressText;
 		public MetaPersonLoader metaPersonLoader;
+		public RuntimeAnimatorController animatorController;
 
 		public void OnLoadAvatarButtonClick()
 		{
@@ -43,11 +44,20 @@ namespace AvatarSDK.MetaPerson.Sample
 			bool isModelLoaded = await metaPersonLoader.LoadModelAsync(modelUrl, p => progressText.text = string.Format("Downloading avatar: {0}%", (int)(p * 100)));
 			if (isModelLoaded)
 			{
+				ConfigureAnimation();
+
 				loadAvatarButton.gameObject.SetActive(false);
 				progressText.gameObject.SetActive(false);
 			}
 			else
 				progressText.text = "Unable to load the model";
+		}
+
+		private void ConfigureAnimation()
+		{
+			HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
+			humanoidAnimatorBuilder.MakeAvatarHumanoid(metaPersonLoader.avatarObject);
+			humanoidAnimatorBuilder.SetAnimatorController(animatorController, metaPersonLoader.avatarObject);
 		}
 	}
 }

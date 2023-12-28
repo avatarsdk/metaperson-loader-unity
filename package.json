@@ -1,6 +1,6 @@
 {
   "name": "com.avatarsdk.metaperson.loader",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "displayName": "MetaPerson Loader",
   "description": "This package provides scripts and shaders to load MetaPerson avatars.",
   "unity": "2021.3",

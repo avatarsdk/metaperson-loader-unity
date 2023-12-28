@@ -11,3 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.1] - 2023-10-04
 ### Added
 - MetaPerson Creator Desktop Integration Sample
+
+## [1.0.0] - 2023-12-28
+### Added
+- MetaPerson Creator WebGL Integration Sample
+- Script to configure MetaPerson as Humanoid avatar

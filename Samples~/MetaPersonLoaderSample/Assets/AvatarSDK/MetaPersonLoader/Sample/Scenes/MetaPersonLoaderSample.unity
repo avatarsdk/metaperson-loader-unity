@@ -171,6 +171,7 @@ MonoBehaviour:
   loadAvatarButton: {fileID: 624124094}
   progressText: {fileID: 1124280430}
   metaPersonLoader: {fileID: 1357355787}
+  animatorController: {fileID: 9100000, guid: 20a95633b66cbc24c9635223a675ae09, type: 2}
 --- !u!1 &624124092
 GameObject:
   m_ObjectHideFlags: 0
