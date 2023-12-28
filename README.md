@@ -86,6 +86,18 @@ This component includes the following materials:
  * **Glasses Material**: This material is utilized for rendering Glasses meshes. It is based on the [double-sided **Standard** fade shader](./Runtime/Shaders/avatar_sdk_standard_double_sided.shader).
 You have the flexibility to modify these template materials to suit your specific needs, or you can implement a custom version of the **MaterialGenerator**.
 
+### Humanoid Animations
+[HumanoidAnimatorBuilder](./Runtime/Scripts/Utils/HumanoidAnimatorBuilder.cs) class helps to configue the MetaPerson avatar as a Humanoid character.
+1. Use **MakeAvatarHumanoid** method to assign an **Animator** component to the MetaPerson avatar and configure it as Humanoid. The **Animator** will be added to the **AvatarRoot** node.
+```c#
+HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
+humanoidAnimatorBuilder.MakeAvatarHumanoid(avatarObject);
+```
+2. Assign **RuntimeAnimatorController**.
+```c#
+humanoidAnimatorBuilder.SetAnimatorController(animatorController, avatarObject);
+```
+
 ## How To Integrate MetaPerson Creator Into Your Application
 [MetaPerson Creator](https://metaperson.avatarsdk.com/)  web page can be integrated into your application, giving your clients the ability to create their custom avatars and import them into your product.
 
