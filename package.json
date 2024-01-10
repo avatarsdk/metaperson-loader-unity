@@ -9,7 +9,7 @@
   "changelogUrl": "https://github.com/avatarsdk/metaperson-loader-unity/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/avatarsdk/metaperson-loader-unity/blob/main/LICENSE.md",
   "dependencies": {
-    "com.atteneder.gltfast": "5.0.4"
+    "com.unity.cloud.gltfast": "6.0.1"
  },
  "keywords": [
     "avatar",
