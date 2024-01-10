@@ -33,8 +33,13 @@ namespace AvatarSDK.MetaPerson.Loader
 
 		private static bool? isDXT5Encoding = null;
 
-		#region IMaterialGenerator
-		public UnityEngine.Material GenerateMaterial(GLTFast.Schema.Material gltfMaterial, IGltfReadable gltf, bool pointsSupport = false)
+        #region IMaterialGenerator
+        public UnityEngine.Material GenerateMaterial(MaterialBase gltfMaterial, IGltfReadable gltf, bool pointsSupport = false)
+        {
+            return GenerateMaterial((GLTFast.Schema.Material)gltfMaterial, gltf, pointsSupport);
+        }
+
+        public UnityEngine.Material GenerateMaterial(GLTFast.Schema.Material gltfMaterial, IGltfReadable gltf, bool pointsSupport = false)
 		{
 			if (gltfMaterial.name == "AvatarEyelashes")
 				return GenerateMaterial(eyelashesMaterial, gltfMaterial, gltf, false);
