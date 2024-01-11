@@ -110,6 +110,8 @@ Native samples:
  * [Android](https://github.com/avatarsdk/metaperson-android-sample)
  * [iOS](https://github.com/avatarsdk/metaperson-ios-sample)
 
+Other samples:
+ * [Integration with body tracking from the Movement SDK for Meta Quest](https://github.com/avatarsdk/metaperson-quest-movement-sdk-sample)
 
 ## Support
 If you have any questions or issues with the plugin, please contact us <support@avatarsdk.com>.
