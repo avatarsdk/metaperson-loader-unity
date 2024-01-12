@@ -10,38 +10,23 @@ The package helps to load MetaPerson avatars in GLB/GLTF format in Unity.
 You have two options to get started: you can import this package and the sample via Unity Package Manager or clone the repository and run the sample from it.
 
 ### Import Via Package Manager
-1\. To import the [glTFast](https://github.com/atteneder/glTFast) package as a dependency of **MetaPerson Loader**, add a new Scoped Registry to *Project Settings -> Package Manager*:
-
-```json
-"scopedRegistries": [
-  {
-    "name": "OpenUPM",
-    "url": "https://package.openupm.com",
-    "scopes": [
-      "com.atteneder"
-    ]
-  }
-]
-```
-![Add Scoped Registry](./Documentation~/Images/add_scoped_registry.JPG "Add Scoped Registry")
-
-2\. Open *Window->Package Manager*, click on the **+** icon in the top left corner, and select **Add Package From Git URL**.
+1\. Open *Window->Package Manager*, click on the **+** icon in the top left corner, and select **Add Package From Git URL**.
 
 ![Add Package From Git Url](./Documentation~/Images/add_package_from_git_url.jpg "Add Package From Git Url")
 
-3\. Provide the Git URL of this project:
+2\. Provide the Git URL of this project:
 
 `https://github.com/avatarsdk/metaperson-loader-unity.git`
 
-4\. Import **MetaPerson Loader Sample** as well.
+3\. Import **MetaPerson Loader Sample** as well.
 
 ![Import Sample](./Documentation~/Images/import_sample.jpg "Import Sample")
 
-5\. Open the `Assets/Samples/MetaPerson Loader/0.1.1/MetaPerson Loader Sample/Scenes/MetaPersonLoaderSample.unity` scene.
+4\. Open the `Assets/Samples/MetaPerson Loader/[ver]/MetaPerson Loader Sample/Scenes/MetaPersonLoaderSample.unity` scene.
 
-6\. Run the scene and click the "Load Avatar" button.
+5\. Run the scene and click the "Load Avatar" button.
 
-7\. The avatar will be downloaded and added to the scene.
+6\. The avatar will be downloaded and added to the scene.
 
 ![MetaPerson model](./Documentation~/Images/metaperson_model.JPG "MetaPerson Model")
 
@@ -62,7 +47,7 @@ To load another model, provide a URL to the GLB/GLTF model or a ZIP archive cont
 ![Change model URL](./Documentation~/Images/change_model_url.JPG "Change Model URL")
 
 ## How It Works
-This package uses [glTFast](https://github.com/atteneder/glTFast) to load MetaPerson models in **GLB/GLTF** format.
+This package uses [glTFast](https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.0/manual/index.html) to load MetaPerson models in **GLB/GLTF** format.
 
 To load a MetaPerson model, follow these steps:
 1. Create an empty object in the scene.
@@ -77,7 +62,7 @@ bool isModelLoaded = await metaPersonLoader.LoadModelAsync(modelUrl, p => Debug.
 ```
 
 ### MetaPersonMaterialGenerator
-The [MetaPersonMaterialGenerator](./Runtime/Scripts/MetaPersonMaterialGenerator.cs) component offers preconfigured materials to be used in place of the default materials provided by [glTFast](https://github.com/atteneder/glTFast). It also ensures that textures are set up correctly.
+The [MetaPersonMaterialGenerator](./Runtime/Scripts/MetaPersonMaterialGenerator.cs) component offers preconfigured materials to be used in place of the default materials provided by [glTFast](https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.0/manual/index.html). It also ensures that textures are set up correctly.
 
 This component includes the following materials:
  * **Default Material**: This material is utilized for rendering Head, Body, Eyes, Mouth, and Outfits meshes. It is based on the **Standard** opaque shader.

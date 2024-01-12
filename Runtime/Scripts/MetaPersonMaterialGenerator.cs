@@ -34,7 +34,7 @@ namespace AvatarSDK.MetaPerson.Loader
 		private static bool? isDXT5Encoding = null;
 
 		#region IMaterialGenerator
-		public UnityEngine.Material GenerateMaterial(GLTFast.Schema.Material gltfMaterial, IGltfReadable gltf, bool pointsSupport = false)
+		public UnityEngine.Material GenerateMaterial(MaterialBase gltfMaterial, IGltfReadable gltf, bool pointsSupport = false)
 		{
 			if (gltfMaterial.name == "AvatarEyelashes")
 				return GenerateMaterial(eyelashesMaterial, gltfMaterial, gltf, false);
@@ -62,24 +62,24 @@ namespace AvatarSDK.MetaPerson.Loader
 				Destroy(texture);
 		}
 
-		private UnityEngine.Material GenerateMaterial(UnityEngine.Material templateMaterial, GLTFast.Schema.Material gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		private UnityEngine.Material GenerateMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
 		{
 			UnityEngine.Material material = Instantiate(templateMaterial);
-			if (gltfMaterial.pbrMetallicRoughness.baseColorTexture.index >= 0)
+			if (gltfMaterial.PbrMetallicRoughness.BaseColorTexture.index >= 0)
 			{
-				Texture2D colorTexture = gltf.GetTexture(gltfMaterial.pbrMetallicRoughness.baseColorTexture.index);
+				Texture2D colorTexture = gltf.GetTexture(gltfMaterial.PbrMetallicRoughness.BaseColorTexture.index);
 				material.mainTexture = CompressTextureIfPossible(colorTexture);
 			}
 
-			if (gltfMaterial.occlusionTexture.index >= 0)
+			if (gltfMaterial.OcclusionTexture.index >= 0)
 			{
-				Texture2D occlusionMapTexture = gltf.GetTexture(gltfMaterial.occlusionTexture.index);
+				Texture2D occlusionMapTexture = gltf.GetTexture(gltfMaterial.OcclusionTexture.index);
 				material.SetTexture("_OcclusionMap", CompressTextureIfPossible(occlusionMapTexture));
 			}
 
-			if (gltfMaterial.normalTexture.index >= 0)
+			if (gltfMaterial.NormalTexture.index >= 0)
 			{
-				Texture2D normalMapTexture = gltf.GetTexture(gltfMaterial.normalTexture.index);
+				Texture2D normalMapTexture = gltf.GetTexture(gltfMaterial.NormalTexture.index);
 				if (IsDXT5EncodingUsedForNormalMap())
 				{
 					Texture2D normalMapXYZTexture = normalMapTexture;
@@ -90,9 +90,9 @@ namespace AvatarSDK.MetaPerson.Loader
 				material.SetTexture("_BumpMap", CompressTextureIfPossible(normalMapTexture));
 			}
 
-			if (gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index >= 0)
+			if (gltfMaterial.PbrMetallicRoughness.MetallicRoughnessTexture.index >= 0)
 			{
-				Texture2D metallicRoughnessTexture = gltf.GetTexture(gltfMaterial.pbrMetallicRoughness.metallicRoughnessTexture.index);
+				Texture2D metallicRoughnessTexture = gltf.GetTexture(gltfMaterial.PbrMetallicRoughness.MetallicRoughnessTexture.index);
 				if (useMetallicRoughness)
 				{
 					Texture2D unityMetallicSmoothnessTexture = ConvertGltfMetallicRoughnessToUnityMetallicSmoothness(metallicRoughnessTexture);
