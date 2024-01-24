@@ -13,21 +13,6 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
 ### Get the sample via Package Manager.
 
- * Add a new Scoped Registry to *Project Settings -> Package Manager*. This registry is required to import the [glTFast](https://github.com/atteneder/glTFast) package as a dependency.
-
-```json
-"scopedRegistries": [
-  {
-    "name": "OpenUPM",
-    "url": "https://package.openupm.com",
-    "scopes": [
-      "com.atteneder"
-    ]
-  }
-]
-```
-![Add Scoped Registry](./Images/add_scoped_registry.JPG "Add Scoped Registry")
-
  * Open *Window->Package Manager*, click on the **+** icon in the top left corner and select **Add Package From Git URL**.
  
 ![Add Package From Git Url](./Images/add_package_from_git_url.jpg "Add Package From Git Url")
