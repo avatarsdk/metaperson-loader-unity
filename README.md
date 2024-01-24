@@ -97,6 +97,7 @@ Native samples:
 
 Other samples:
  * [Integration with body tracking from the Movement SDK for Meta Quest](https://github.com/avatarsdk/metaperson-quest-movement-sdk-sample)
+ * [Unity Multiplayer Photon Sample](https://github.com/avatarsdk/metaperson-unity-photon-sample)
 
 ## Support
 If you have any questions or issues with the plugin, please contact us <support@avatarsdk.com>.
