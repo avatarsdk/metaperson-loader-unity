@@ -72,11 +72,11 @@ This component includes the following materials:
 You have the flexibility to modify these template materials to suit your specific needs, or you can implement a custom version of the **MaterialGenerator**.
 
 ### Humanoid Animations
-[HumanoidAnimatorBuilder](./Runtime/Scripts/Utils/HumanoidAnimatorBuilder.cs) class helps to configue the MetaPerson avatar as a Humanoid character.
-1. Use **MakeAvatarHumanoid** method to assign an **Animator** component to the MetaPerson avatar and configure it as Humanoid. The **Animator** will be added to the **AvatarRoot** node.
+[HumanoidAnimatorBuilder](./Runtime/Scripts/Utils/HumanoidAnimatorBuilder.cs) class helps to configure the MetaPerson avatar as a Humanoid character.
+1. Use **AddHumanoidAnimator** method to assign an **Animator** component to the MetaPerson avatar and configure it as Humanoid. The **Animator** will be added to the **AvatarRoot** node.
 ```c#
 HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
-humanoidAnimatorBuilder.MakeAvatarHumanoid(avatarObject);
+humanoidAnimatorBuilder.AddHumanoidAnimator(avatarObject);
 ```
 2. Assign **RuntimeAnimatorController**.
 ```c#

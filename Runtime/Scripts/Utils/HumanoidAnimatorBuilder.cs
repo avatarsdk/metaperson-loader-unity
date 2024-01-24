@@ -73,7 +73,7 @@ namespace AvatarSDK.MetaPerson.Loader
 			{"Spine2", "UpperChest"}
 		};
 
-		public void MakeAvatarHumanoid(GameObject metaPersonAvatar)
+		public void AddHumanoidAnimator(GameObject metaPersonAvatar)
 		{
 			SkinnedMeshRenderer meshRenderer = FindBodyMeshRenderer(metaPersonAvatar);
 			if (meshRenderer == null)
@@ -88,6 +88,19 @@ namespace AvatarSDK.MetaPerson.Loader
 			if (animator == null)
 				animator = root.AddComponent<Animator>();
 			animator.avatar = AvatarBuilder.BuildHumanAvatar(root, BuildHumanDescription(meshRenderer, root));
+		}
+
+		public Avatar BuildHumanAvatar(GameObject metaPersonAvatar)
+		{
+			SkinnedMeshRenderer meshRenderer = FindBodyMeshRenderer(metaPersonAvatar);
+			if (meshRenderer == null)
+			{
+				Debug.LogError("Unable to find body mesh renderer.");
+				return null;
+			}
+
+			GameObject root = meshRenderer.transform.parent.gameObject;
+			return AvatarBuilder.BuildHumanAvatar(root, BuildHumanDescription(meshRenderer, root));
 		}
 
 		public void SetAnimatorController(RuntimeAnimatorController animatorController, GameObject metaPersonAvatar)

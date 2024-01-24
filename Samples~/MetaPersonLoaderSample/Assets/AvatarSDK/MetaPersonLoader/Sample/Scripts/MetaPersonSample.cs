@@ -56,7 +56,7 @@ namespace AvatarSDK.MetaPerson.Sample
 		private void ConfigureAnimation()
 		{
 			HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
-			humanoidAnimatorBuilder.MakeAvatarHumanoid(metaPersonLoader.avatarObject);
+			humanoidAnimatorBuilder.AddHumanoidAnimator(metaPersonLoader.avatarObject);
 			humanoidAnimatorBuilder.SetAnimatorController(animatorController, metaPersonLoader.avatarObject);
 		}
 	}
