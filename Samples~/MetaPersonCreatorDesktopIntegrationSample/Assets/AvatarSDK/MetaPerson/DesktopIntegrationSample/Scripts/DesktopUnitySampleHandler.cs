@@ -184,6 +184,8 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 
 		public MetaPersonLoader metaPersonLoader;
 
+		public RuntimeAnimatorController animatorController;
+
 		public GameObject webViewPlaceholder;
 
 		public GameObject importControls;
