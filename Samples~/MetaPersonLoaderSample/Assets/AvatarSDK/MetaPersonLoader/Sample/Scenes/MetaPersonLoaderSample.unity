@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484ea8a245a134209beac39c3e98abd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelUrl: https://metaperson.avatarsdk.com/avatars/7f19cdf6-34b3-419a-afd1-a8c47df79e08/avatar.zip
+  modelUrl: https://metaperson.avatarsdk.com/avatars/96efcff5-c9ca-4668-932f-f5af508567d5/model.glb
   loadAvatarButton: {fileID: 624124094}
   progressText: {fileID: 1124280430}
   metaPersonLoader: {fileID: 1357355787}

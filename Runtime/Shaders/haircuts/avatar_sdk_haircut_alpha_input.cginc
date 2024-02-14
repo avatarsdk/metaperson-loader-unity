@@ -10,6 +10,7 @@
 #ifndef AVATAR_SDK_ALPHA_INPUT_INCLUDED
 #define AVATAR_SDK_ALPHA_INPUT_INCLUDED
 
+float _UseAlphaTex;
 sampler2D _AlphaTex;
 float _RootsAlphaLevel;
 
@@ -19,7 +20,11 @@ half AlphaLevel(float2 uv)
 #if defined(_SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A)
     return _Color.a;
 #else
-    float alpha = min(tex2D(_MainTex, uv).a, tex2D(_AlphaTex, uv).r);
+    float alpha = 1.0f;
+    if (_UseAlphaTex != 0.0f)
+        alpha = tex2D(_AlphaTex, uv).r;
+    else
+        alpha = tex2D(_MainTex, uv).a;
 
     float startAvgPos = 0.1 * (1 - _RootsAlphaLevel);
     if (uv.y < startAvgPos)
@@ -33,12 +38,16 @@ half AlphaLevel(float2 uv)
             if (y < startAvgPos)
             {
                 float2 dUV = float2(uv.x, y);
-                alpha += min(tex2D(_MainTex, dUV).a, tex2D(_AlphaTex, dUV).r);
+                if (_UseAlphaTex != 0.0f)
+                    alpha += tex2D(_AlphaTex, dUV).r;
+                else
+                    alpha += tex2D(_MainTex, dUV).a;
                 n++;
             }
         }
         alpha /= n;
     }
+
     return alpha;
 #endif
 }

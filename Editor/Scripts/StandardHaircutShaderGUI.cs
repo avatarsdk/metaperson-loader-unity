@@ -44,6 +44,7 @@ namespace AvatarSDK.MetaPerson.Loader.Editor
 			public static GUIContent uvSetLabel = EditorGUIUtility.TrTextContent("UV Set");
 
 			public static GUIContent albedoText = EditorGUIUtility.TrTextContent("Albedo", "Albedo (RGB) and Transparency (A)");
+			public static GUIContent useAlphaMapText = EditorGUIUtility.TrTextContent("Use Alpha Texture", "Use Alpha Texture");
 			public static GUIContent alphaMapText = EditorGUIUtility.TrTextContent("Alpha Map", "Alpha Texture (R)");
 			public static GUIContent rootsAlphaLevelText = EditorGUIUtility.TrTextContent("Roots Alpha Level", "Alpha level for roots");
 			public static GUIContent alphaCutoffText = EditorGUIUtility.TrTextContent("Alpha Cutoff", "Threshold for alpha cutoff");
@@ -73,6 +74,7 @@ namespace AvatarSDK.MetaPerson.Loader.Editor
 		MaterialProperty blendMode = null;
 		MaterialProperty albedoMap = null;
 		MaterialProperty albedoColor = null;
+		MaterialProperty useAlphaMap = null;
 		MaterialProperty alphaMap = null;
 		MaterialProperty rootsAlphaLevel = null;
 		MaterialProperty alphaCutoff = null;
@@ -109,6 +111,7 @@ namespace AvatarSDK.MetaPerson.Loader.Editor
 			blendMode = FindProperty("_Mode", props);
 			albedoMap = FindProperty("_MainTex", props);
 			albedoColor = FindProperty("_Color", props);
+			useAlphaMap = FindProperty("_UseAlphaTex", props, false);
 			alphaMap = FindProperty("_AlphaTex", props);
 			rootsAlphaLevel = FindProperty("_RootsAlphaLevel", props);
 			alphaCutoff = FindProperty("_Cutoff", props);
@@ -327,6 +330,8 @@ namespace AvatarSDK.MetaPerson.Loader.Editor
 
 		void DoAlphaMapArea()
 		{
+			if (useAlphaMap != null)
+				m_MaterialEditor.ShaderProperty(useAlphaMap, Styles.useAlphaMapText);
 			if (alphaMap != null)
 				m_MaterialEditor.TexturePropertySingleLine(Styles.alphaMapText, alphaMap);
 		}

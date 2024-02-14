@@ -17,6 +17,7 @@ Shader "Avatar SDK/Standard Haircut"
         _Color("Color", Color) = (1,1,1,1)
         _MainTex("Albedo", 2D) = "white" {}
 
+        [ToggleOff] _UseAlphaTex("Use Alpha Texture", Float) = 0.0
         _AlphaTex("Alpha Texture", 2D) = "white" {}
         _RootsAlphaLevel("Roots Alpha Level", Range(0.0, 1.0)) = 1.0
 
