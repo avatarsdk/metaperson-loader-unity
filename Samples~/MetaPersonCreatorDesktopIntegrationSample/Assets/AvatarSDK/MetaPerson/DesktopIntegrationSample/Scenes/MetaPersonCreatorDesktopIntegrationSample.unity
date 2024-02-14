@@ -431,6 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   credentials: {fileID: 468221263}
   metaPersonLoader: {fileID: 1574700214}
+  animatorController: {fileID: 9100000, guid: 20a95633b66cbc24c9635223a675ae09, type: 2}
   webViewPlaceholder: {fileID: 1338691271}
   importControls: {fileID: 1807511653}
   getAvatarButton: {fileID: 432707993}

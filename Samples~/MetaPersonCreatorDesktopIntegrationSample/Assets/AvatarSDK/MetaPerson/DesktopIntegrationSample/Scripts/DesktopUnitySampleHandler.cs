@@ -28,6 +28,8 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 
 		public MetaPersonLoader metaPersonLoader;
 
+		public RuntimeAnimatorController animatorController;
+
 		public GameObject webViewPlaceholder;
 
 		public GameObject importControls;
@@ -88,6 +90,7 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 								} else if (evtName === 'model_exported') {
 									console.log('model url: ' + data.url);
 									console.log('gender: ' + data.gender);
+									console.log('avatar code: ' + data.avatarCode);
 									window.vuplex.postMessage(evt.data);
 								}
 							}
@@ -114,7 +117,7 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 							'eventName': 'set_ui_parameters',
 							'isExportButtonVisible' : true,
 							'closeExportDialogWhenExportComlpeted' : true,
-						  };
+						};
 						evt.source.postMessage(uiParametersMessage, '*');
 					}
 
@@ -146,6 +149,7 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 
 					if (isLoaded)
 					{
+						ConfigureAnimation();
 						progressText.text = string.Empty;
 						importControls.SetActive(false);
 					}
@@ -164,6 +168,13 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 				getAvatarButton.interactable = true;
 				importControls.SetActive(true);
 			}
+		}
+
+		private void ConfigureAnimation()
+		{
+			HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
+			humanoidAnimatorBuilder.AddHumanoidAnimator(metaPersonLoader.avatarObject);
+			humanoidAnimatorBuilder.SetAnimatorController(animatorController, metaPersonLoader.avatarObject);
 		}
 	}
 #else
