@@ -4,6 +4,11 @@ This sample demonstrates how to integrate the [MetaPerson Creator](https://metap
 **Note:** A special WebView component is required to display web pages inside a Unity application. This sample uses the [Vuplex Web View](https://store.vuplex.com/webview/webgl) plugin, which is paid.
 You can also choose any other 3rd party solution with a WebView component.
 
+## Reqirements
+ * Unity 2021.3.19f1
+ * Built-in render pipeline
+ * Linear color space for better rendering quality
+ * [Vuplex Web View](https://store.vuplex.com/webview/webgl) plugin
 
 ## Getting Started
 **1\.** Open the sample scene. 
