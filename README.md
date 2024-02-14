@@ -4,6 +4,7 @@ The package helps to load MetaPerson avatars in GLB/GLTF format in Unity.
 ## Requirements
  * Unity 2021.3.19f1 or a more recent version
  * Built-in render pipeline
+ * Linear color space for better rendering quality
  * Supported platforms: Windows, MacOS, Android, iOS, WebGL
  
 ## Getting Started
