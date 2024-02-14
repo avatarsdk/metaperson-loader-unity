@@ -6,6 +6,12 @@ You can also choose any other 3rd party solution with a WebView component.
 
 Watch also the [video tutorial on Youtube](https://www.youtube.com/watch?v=UT143JebgoE_channel=AvatarSDK).
 
+## Requirements
+ * [Vuplex Web View](https://store.vuplex.com/webview/windows-mac) plugin
+ * Unity 2021.3.19f1 or a more recent version
+ * Built-in render pipeline
+ * Linear color space for better rendering quality
+
 ## Getting Started
 **1\.** Open the sample scene. 
 
