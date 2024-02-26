@@ -74,30 +74,34 @@ namespace AvatarSDK.MetaPerson.AndroidIntegrationSample
 		{
 			string javaScriptCode = @"
 					{
-						const CLIENT_ID = '" + credentials.clientId + @"';
-						const CLIENT_SECRET = '" + credentials.clientSecret + @"';
+						function sendConfigurationParams() {
+							console.log('sendConfigurationParams');
 
-						let authenticationMessage = {
-							'eventName': 'authenticate',
-							'clientId': CLIENT_ID,
-							'clientSecret': CLIENT_SECRET
-						};
-						window.postMessage(authenticationMessage, '*');
+							const CLIENT_ID = '" + credentials.clientId + @"';
+							const CLIENT_SECRET = '" + credentials.clientSecret + @"';
 
-						let exportParametersMessage = {
-							'eventName': 'set_export_parameters',
-							'format': 'glb',
-							'lod': 2,
-							'textureProfile': '1K.jpg'
-						};
-						window.postMessage(exportParametersMessage, '*');
+							let authenticationMessage = {
+								'eventName': 'authenticate',
+								'clientId': CLIENT_ID,
+								'clientSecret': CLIENT_SECRET
+							};
+							window.postMessage(authenticationMessage, '*');
 
-						let uiParametersMessage = {
-							'eventName': 'set_ui_parameters',
-							'isExportButtonVisible' : true,
-							'isLoginButtonVisible': true
-						};
-						window.postMessage(uiParametersMessage, '*');
+							let exportParametersMessage = {
+								'eventName': 'set_export_parameters',
+								'format': 'glb',
+								'lod': 2,
+								'textureProfile': '1K.jpg'
+							};
+							window.postMessage(exportParametersMessage, '*');
+
+							let uiParametersMessage = {
+								'eventName': 'set_ui_parameters',
+								'isExportButtonVisible' : true,
+								'isLoginButtonVisible': true
+							};
+							window.postMessage(uiParametersMessage, '*');
+						}
 
 						function onWindowMessage(evt) {
 							console.log('onWindowMessage: ' + evt.data);
@@ -105,7 +109,10 @@ namespace AvatarSDK.MetaPerson.AndroidIntegrationSample
 								if (evt.data?.source === 'metaperson_creator') {
 									let data = evt.data;
 									let evtName = data?.eventName;
-									if (evtName === 'model_exported') {
+									if (evtName === 'unity_loaded' ||
+										evtName === 'mobile_loaded') {
+										sendConfigurationParams();
+									} else if (evtName === 'model_exported') {
 										console.log('model url: ' + data.url);
 										console.log('gender: ' + data.gender);
 										console.log('avatar code: ' + data.avatarCode);
@@ -116,6 +123,8 @@ namespace AvatarSDK.MetaPerson.AndroidIntegrationSample
 						}
 						window.addEventListener('message', onWindowMessage);
 
+						if (window.metaPersonCreator && window.metaPersonCreator.isLoaded)
+							sendConfigurationParams();
 					}
 				";
 
