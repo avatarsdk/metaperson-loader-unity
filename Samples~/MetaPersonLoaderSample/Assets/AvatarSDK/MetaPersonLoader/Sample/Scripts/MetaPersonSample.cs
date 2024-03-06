@@ -41,6 +41,7 @@ namespace AvatarSDK.MetaPerson.Sample
 		private async void LoadAvatar()
 		{
 			progressText.text = string.Empty;
+			loadAvatarButton.interactable = false;
 			bool isModelLoaded = await metaPersonLoader.LoadModelAsync(modelUrl, p => progressText.text = string.Format("Downloading avatar: {0}%", (int)(p * 100)));
 			if (isModelLoaded)
 			{
@@ -51,6 +52,7 @@ namespace AvatarSDK.MetaPerson.Sample
 			}
 			else
 				progressText.text = "Unable to load the model";
+			loadAvatarButton.interactable = true;
 		}
 
 		private void ConfigureAnimation()

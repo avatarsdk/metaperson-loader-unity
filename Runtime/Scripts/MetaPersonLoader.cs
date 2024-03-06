@@ -27,6 +27,8 @@ namespace AvatarSDK.MetaPerson.Loader
 
 		public MetaPersonMaterialGenerator materialGenerator = null;
 
+		public bool cacheModels = false;
+
 		public async void LoadModel(string uri, Action<float> downloadProgressCallback = null)
 		{
 			await LoadModelAsync(uri, downloadProgressCallback);
@@ -38,11 +40,17 @@ namespace AvatarSDK.MetaPerson.Loader
 			{
 				byte[] modelBytes = null;
 				Uri modelUri = new Uri(uri);
+				if (cacheModels)
+					modelUri = MetaPersonCache.ConvertToCacheUriIfExists(modelUri);
+
 				if (modelUri.IsFile)
-					modelBytes = File.ReadAllBytes(modelUri.AbsolutePath);
+					modelBytes = File.ReadAllBytes(modelUri.LocalPath);
 				else
+				{
 					modelBytes = await DownloadFileAsync(modelUri.AbsoluteUri, downloadProgressCallback);
-			
+					if (cacheModels)
+						MetaPersonCache.SaveModel(modelUri, modelBytes);
+				}
 
 				if (uri.EndsWith("zip"))
 					modelBytes = Unzip(modelBytes);
@@ -52,6 +60,8 @@ namespace AvatarSDK.MetaPerson.Loader
 				importSettings.AnisotropicFilterLevel = 1;
 				importSettings.DefaultMagFilterMode = GLTFast.Schema.Sampler.MagFilterMode.Linear;
 				importSettings.DefaultMinFilterMode = GLTFast.Schema.Sampler.MinFilterMode.Linear;
+
+				downloadProgressCallback?.Invoke(1.0f);
 
 				var gltfImporter = new GltfImport(materialGenerator: materialGenerator);
 				var success = await gltfImporter.Load(modelBytes, importSettings: importSettings);
