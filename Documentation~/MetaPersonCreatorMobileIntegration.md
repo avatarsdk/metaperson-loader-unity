@@ -1,11 +1,11 @@
 # MetaPerson Creator - Integration Into Android And iOS Unity Application 
 This sample demonstrates how to integrate the [MetaPerson Creator](https://mobile.metaperson.avatarsdk.com/generator) web page into **Android** or **iOS** applications and export an avatar from it.
 
-**Note:** A special WebView component is required to display web pages inside a Unity application. This sample uses the Vuplex Web View plugin for [android](https://store.vuplex.com/webview/android) and [iOS](https://store.vuplex.com/webview/ios).
+**Note:** A special WebView component is required to display web pages inside a Unity application. This sample uses the Vuplex Web View plugin for [Android](https://store.vuplex.com/webview/android) and [iOS](https://store.vuplex.com/webview/ios).
 You can also choose any other 3rd party solution with a WebView component.
 
 ## Requirements
- * Vuplex Web View plugin for [android](https://store.vuplex.com/webview/android) and [iOS](https://store.vuplex.com/webview/ios)
+ * Vuplex Web View plugin for [Android](https://store.vuplex.com/webview/android) and [iOS](https://store.vuplex.com/webview/ios)
  * Unity 2021.3.19f1 or a more recent version
  * Built-in render pipeline
  * Linear color space for better rendering quality
@@ -39,7 +39,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
  * Open the `Assets/AvatarSDK/MetaPerson/MobileIntegrationSample/Scenes/MetaPersonCreatorMobileIntegrationSample.unity` scene.
  
-**2\.** Import Vuplex plugin for [android](https://store.vuplex.com/webview/android) or [iOS](https://store.vuplex.com/webview/ios) into the project.
+**2\.** Import Vuplex plugin for [Android](https://store.vuplex.com/webview/android) or [iOS](https://store.vuplex.com/webview/ios) into the project.
 
 **3\.** Find **SceneHandler** object and provide your [Account Credentials](#account-credentials).
 
@@ -75,7 +75,7 @@ To export models from the [MetaPerson Creator](https://mobile.metaperson.avatars
 Find out more information about business integration at https://docs.metaperson.avatarsdk.com/business_integration.html. 
 
 ## How It Works
-A WebView component is required to show the [MetaPerson Creator](https://mobile.metaperson.avatarsdk.com/generator) page in Unity application. This sample uses the Vuplex Web View plugin for [android](https://store.vuplex.com/webview/android) and [iOS](https://store.vuplex.com/webview/ios).
+A WebView component is required to show the [MetaPerson Creator](https://mobile.metaperson.avatarsdk.com/generator) page in Unity application. This sample uses the Vuplex Web View plugin for [Android](https://store.vuplex.com/webview/android) and [iOS](https://store.vuplex.com/webview/ios).
 
 The [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page communicates with the Unity application via [JS API](https://docs.metaperson.avatarsdk.com/js_api.html).
 
@@ -83,7 +83,7 @@ Here's how it works:
 
 1. Load the following page in a WebView component: `https://mobile.metaperson.avatarsdk.com/generator`.
 
-2. Once the page is loaded, the following JavaScript code is executed. It checks if the `window.metaPersonCreator.isLoaded` or waits for a special `mobile_loaded` event that indicates that the MetaPerson Creator page is ready for messages commnication. 
+2. Once the page is loaded, the following JavaScript code is executed. It checks if the `window.metaPersonCreator.isLoaded` or waits for a special `mobile_loaded` event that indicates that the MetaPerson Creator page is ready for message communication. 
 After that the app posts messages with authentication, export, and UI parameters.
 
 ```javascript
@@ -143,7 +143,7 @@ if (window.metaPersonCreator && window.metaPersonCreator.isLoaded)
 
 Implementation details can be found in the [MobileUnitySampleHandler.cs script](./../Samples~/MetaPersonCreatorMobileIntegrationSample/Assets/AvatarSDK/MetaPerson/MobileIntegrationSample/Scripts/MobileUnitySampleHandler.cs).
 
-More information about JS API parrameters can be found here: https://docs.metaperson.avatarsdk.com/js_api.html
+More information about JS API parameters can be found here: https://docs.metaperson.avatarsdk.com/js_api.html
 
 ## Support
 If you have any questions or issues with the sample, please contact us <support@avatarsdk.com>.
