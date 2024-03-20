@@ -84,7 +84,7 @@ Here's how it works:
 1. Load the following page in a WebView component: `https://mobile.metaperson.avatarsdk.com/generator`.
 
 2. Once the page is loaded, the following JavaScript code is executed. It checks if the `window.metaPersonCreator.isLoaded` or waits for a special `mobile_loaded` event that indicates that the MetaPerson Creator page is ready for messages commnication. 
-After that the app post messages with authentication, export, and UI parameters.
+After that the app posts messages with authentication, export, and UI parameters.
 
 ```javascript
 function sendConfigurationParams() {
