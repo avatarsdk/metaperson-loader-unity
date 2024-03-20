@@ -16,9 +16,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Vuplex.WebView;
 
-namespace AvatarSDK.MetaPerson.AndroidIntegrationSample
+namespace AvatarSDK.MetaPerson.MobileIntegrationSample
 {
-	public class AndroidUnitySampleHandler : MonoBehaviour
+	public class MobileUnitySampleHandler : MonoBehaviour
 	{
 		public AccountCredentials credentials;
 

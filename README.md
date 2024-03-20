@@ -89,6 +89,7 @@ humanoidAnimatorBuilder.SetAnimatorController(animatorController, avatarObject);
 
 Unity samples:
  * [Windows and macOS](./Documentation~/MetaPersonCreatorDesktopIntegration.md)
+ * [Android and iOS](./Documentation~/MetaPersonCreatorMobileIntegration.md)
  * [VR Quest](https://github.com/avatarsdk/metaperson-vr-quest-sample)
  * [WebGL](./Documentation~/MetaPersonCreatorWebGLIntegration.md)
  

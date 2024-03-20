@@ -8,21 +8,19 @@
 * Written by Itseez3D, Inc. <support@avatarsdk.com>, October 2023
 */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AvatarSDK.MetaPerson.AndroidIntegrationSample
+namespace AvatarSDK.MetaPerson.MobileIntegrationSample
 {
-	public class AccountCredentials : MonoBehaviour
+	[Serializable]
+	public class ModelExportedEvent
 	{
-		public string clientId;
-
-		public string clientSecret;
-
-		public bool IsEmpty()
-		{
-			return string.IsNullOrEmpty(clientId) || string.IsNullOrEmpty(clientSecret);
-		}
+		public string eventName;
+		public string source;
+		public string url;
+		public string gender;
 	}
 }
