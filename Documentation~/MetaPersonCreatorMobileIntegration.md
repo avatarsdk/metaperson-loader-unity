@@ -1,5 +1,5 @@
 # MetaPerson Creator - Integration Into Android And iOS Unity Application 
-This sample demonstrates how to integrate the [MetaPerson Creator](https://metaperson.avatarsdk.com/) web page into **Android** or **iOS** applications and export an avatar from it.
+This sample demonstrates how to integrate the [MetaPerson Creator](https://mobile.metaperson.avatarsdk.com/generator) web page into **Android** or **iOS** applications and export an avatar from it.
 
 **Note:** A special WebView component is required to display web pages inside a Unity application. This sample uses the Vuplex Web View plugin for [android](https://store.vuplex.com/webview/android) and [iOS](https://store.vuplex.com/webview/ios).
 You can also choose any other 3rd party solution with a WebView component.
@@ -58,7 +58,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 ![Avatar On Scene](./Images/mobile_avatar_on_scene.jpg "Avatar On Scene")
 
 ## Account Credentials
-To export models from the [MetaPerson Creator](https://metaperson.avatarsdk.com/), you'll need AvatarSDK developer account credentials. Follow these steps to obtain them:
+To export models from the [MetaPerson Creator](https://mobile.metaperson.avatarsdk.com/generator), you'll need AvatarSDK developer account credentials. Follow these steps to obtain them:
 
 1. **Create an AvatarSDK Developer Account.**
    Visit the [AvatarSDK Developer Signup page](https://accounts.avatarsdk.com/developer/signup/) to create your AvatarSDK developer account. If you already have an account, you can skip this step.
@@ -75,7 +75,7 @@ To export models from the [MetaPerson Creator](https://metaperson.avatarsdk.com/
 Find out more information about business integration at https://docs.metaperson.avatarsdk.com/business_integration.html. 
 
 ## How It Works
-A WebView component is required to show the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page in Unity application. This sample uses the Vuplex Web View plugin for [android](https://store.vuplex.com/webview/android) and [iOS](https://store.vuplex.com/webview/ios).
+A WebView component is required to show the [MetaPerson Creator](https://mobile.metaperson.avatarsdk.com/generator) page in Unity application. This sample uses the Vuplex Web View plugin for [android](https://store.vuplex.com/webview/android) and [iOS](https://store.vuplex.com/webview/ios).
 
 The [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page communicates with the Unity application via [JS API](https://docs.metaperson.avatarsdk.com/js_api.html).
 
