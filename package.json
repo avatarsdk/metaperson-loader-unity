@@ -1,6 +1,6 @@
 {
   "name": "com.avatarsdk.metaperson.loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "MetaPerson Loader",
   "description": "This package provides scripts and shaders to load MetaPerson avatars.",
   "unity": "2021.3",
@@ -39,6 +39,11 @@
       "displayName": "MetaPerson Creator Desktop Integration Sample",
       "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a Windows or macOS application.",
       "path": "Samples~/MetaPersonCreatorDesktopIntegrationSample/Assets/AvatarSDK/MetaPerson/DesktopIntegrationSample"
+    },
+    {
+      "displayName": "MetaPerson Creator Mobile Integration Sample",
+      "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a mobile (android/ios) application.",
+      "path": "Samples~/MetaPersonCreatorMobileIntegrationSample/Assets/AvatarSDK/MetaPerson/MobileIntegrationSample"
     },
     {
       "displayName": "MetaPerson Creator WebGL Integration Sample",
