@@ -77,9 +77,9 @@ To export models from the [MetaPerson Creator](https://metaperson.avatarsdk.com/
 Find out more information about business integration at https://docs.metaperson.avatarsdk.com/business_integration.html. 
 
 ## How It Works
-To integrate the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page into your Unity application, it should be shown in a WebView component. This sample uses the [Vuplex Web View](https://store.vuplex.com/webview/windows-mac) for this purpose.
+A WebView component is required to show the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page in Unity application. This sample uses the [Vuplex Web View](https://store.vuplex.com/webview/windows-mac) for this purpose.
 
-The communication between [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) and Unity is carried out through the use of the [JS API](https://docs.metaperson.avatarsdk.com/js_api.html).
+The [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page communicates with the Unity application via [JS API](https://docs.metaperson.avatarsdk.com/js_api.html).
 
 Here's how it works:
 
