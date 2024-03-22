@@ -62,6 +62,14 @@ This component provides preconfigured materials and sets up avatar textures. Whe
 bool isModelLoaded = await metaPersonLoader.LoadModelAsync(modelUrl, p => Debug.LogFormat("Downloading avatar: {0}%", (int)(p * 100)));
 ```
 
+### MetaPersonLoader Properties
+ * **Model Url**: a URL to the GLB/GLTF or a ZIP with a MetaPerson model.
+ * **Avatar Object**: a parent object of the instantiated avatar. If it isn't specified, the MetaPersonLoader's object is a parent of the avatar.
+ * **Material Generator**: provides avatar's materials.
+ * **Cache Models**: if true, the downloaded model is saved to the [persistent storage] (https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html) for caching.
+ * **Configre Animator**: if true, an Animator component is added to the avatar.
+ * **Animator Controller**: runtime animator contoller that is assigned to the Animator.
+
 ### MetaPersonMaterialGenerator
 The [MetaPersonMaterialGenerator](./Runtime/Scripts/MetaPersonMaterialGenerator.cs) component offers preconfigured materials to be used in place of the default materials provided by [glTFast](https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.0/manual/index.html). It also ensures that textures are set up correctly.
 
@@ -71,18 +79,6 @@ This component includes the following materials:
  * **Haircut Material**: This material is utilized for rendering Haircuts meshes. The shader for this material can be found [here](./Runtime/Shaders/haircuts/avatar_sdk_haircut_standard.shader).
  * **Glasses Material**: This material is utilized for rendering Glasses meshes. It is based on the [double-sided **Standard** fade shader](./Runtime/Shaders/avatar_sdk_standard_double_sided.shader).
 You have the flexibility to modify these template materials to suit your specific needs, or you can implement a custom version of the **MaterialGenerator**.
-
-### Humanoid Animations
-[HumanoidAnimatorBuilder](./Runtime/Scripts/Utils/HumanoidAnimatorBuilder.cs) class helps to configure the MetaPerson avatar as a Humanoid character.
-1. Use **AddHumanoidAnimator** method to assign an **Animator** component to the MetaPerson avatar and configure it as Humanoid. The **Animator** will be added to the **AvatarRoot** node.
-```c#
-HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
-humanoidAnimatorBuilder.AddHumanoidAnimator(avatarObject);
-```
-2. Assign **RuntimeAnimatorController**.
-```c#
-humanoidAnimatorBuilder.SetAnimatorController(animatorController, avatarObject);
-```
 
 ## How To Integrate MetaPerson Creator Into Your Application
 [MetaPerson Creator](https://metaperson.avatarsdk.com/)  web page can be integrated into your application, giving your clients the ability to create their custom avatars and import them into your product.
