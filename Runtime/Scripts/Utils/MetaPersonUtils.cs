@@ -20,12 +20,16 @@ namespace AvatarSDK.MetaPerson.Loader
 		{
 			Animator srcAnimator = srcAvatarObject.GetComponentInChildren<Animator>();
 			Animator dstAnimator = dstAvatarObject.GetComponentInChildren<Animator>();
-			if (srcAnimator != null && dstAnimator != null)
+
+			float time = 0;
+			int nameHash = 0;
+			if (dstAnimator != null)
 			{
-				dstAnimator.avatar = srcAnimator.avatar;
+				time = dstAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+				nameHash = dstAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash;
+				if (srcAnimator != null)
+					dstAnimator.avatar = srcAnimator.avatar;
 			}
-			else
-				Debug.LogWarning("Animator wasn't updated");
 
 			Transform rootBone = dstAvatarObject.transform;
 			Transform rootTransform = dstAvatarObject.transform;
@@ -57,13 +61,19 @@ namespace AvatarSDK.MetaPerson.Loader
 				{
 					Transform[] currentBones = meshRenderer.bones;
 					Transform[] newBones = new Transform[currentBones.Length];
-					for(int i=0; i<currentBones.Length; i++)
+					for (int i = 0; i < currentBones.Length; i++)
 					{
 						dstTransformsMap.TryGetValue(currentBones[i].name, out newBones[i]);
 					}
 					meshRenderer.bones = newBones;
 					meshRenderer.transform.SetParent(rootTransform, false);
 				}
+			}
+
+			if (dstAnimator != null)
+			{
+				dstAnimator.Rebind();
+				dstAnimator.Play(nameHash, 0, time);
 			}
 
 			Object.Destroy(srcAvatarObject);
