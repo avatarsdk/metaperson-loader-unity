@@ -66,8 +66,8 @@ bool isModelLoaded = await metaPersonLoader.LoadModelAsync(modelUrl, p => Debug.
  * **Model Url**: a URL to the GLB/GLTF or a ZIP with a MetaPerson model.
  * **Avatar Object**: a parent object of the instantiated avatar. If it isn't specified, the MetaPersonLoader's object is a parent of the avatar.
  * **Material Generator**: provides avatar's materials.
- * **Cache Models**: if true, the downloaded model is saved to the [persistent storage] (https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html) for caching.
- * **Configre Animator**: if true, an Animator component is added to the avatar.
+ * **Cache Models**: if true, the downloaded model is saved to the [persistent storage](https://docs.unity3d.com/ScriptReference/Application-persistentDataPath.html) for caching.
+ * **Configure Animator**: if true, an Animator component is added to the avatar.
  * **Animator Controller**: runtime animator contoller that is assigned to the Animator.
 
 ### MetaPersonMaterialGenerator
