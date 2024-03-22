@@ -1,8 +1,7 @@
 # MetaPerson Creator - Integration Into WebGL Application 
 This sample demonstrates how to integrate the [MetaPerson Creator](https://metaperson.avatarsdk.com/) web page into **WebGL** applications and export an avatar from it.
 
-**Note:** A special WebView component is required to display web pages inside a Unity application. This sample uses the [Vuplex Web View](https://store.vuplex.com/webview/webgl) plugin, which is paid.
-You can also choose any other 3rd party solution with a WebView component.
+**Note:** A special WebView component is required to display web pages inside a Unity application. This sample uses the [Vuplex Web View](https://store.vuplex.com/webview/webgl) plugin. We can provide you with a **20% discount** coupon for this plugin. Please contact us <support@avatarsdk.com> to get it.
 
 ## Reqirements
  * Unity 2021.3.19f1
