@@ -31,8 +31,6 @@ namespace AvatarSDK.MetaPerson.WebglIntegrationSample
 
 		public MetaPersonLoader metaPersonLoader;
 
-		public RuntimeAnimatorController animatorController;
-
 		public GameObject webViewPlaceholder;
 
 		public GameObject importControls;
@@ -131,7 +129,6 @@ namespace AvatarSDK.MetaPerson.WebglIntegrationSample
 
 					if (isLoaded)
 					{
-						ConfigureAnimation();
 						progressText.text = string.Empty;
 						importControls.SetActive(false);
 					}
@@ -151,13 +148,6 @@ namespace AvatarSDK.MetaPerson.WebglIntegrationSample
 				importControls.SetActive(true);
 			}
 		}
-
-		private void ConfigureAnimation()
-		{
-			HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
-			humanoidAnimatorBuilder.AddHumanoidAnimator(metaPersonLoader.avatarObject);
-			humanoidAnimatorBuilder.SetAnimatorController(animatorController, metaPersonLoader.avatarObject);
-		}
 	}
 #else
 
@@ -166,8 +156,6 @@ namespace AvatarSDK.MetaPerson.WebglIntegrationSample
 		public AccountCredentials credentials;
 
 		public MetaPersonLoader metaPersonLoader;
-
-		public RuntimeAnimatorController animatorController;
 
 		public GameObject webViewPlaceholder;
 

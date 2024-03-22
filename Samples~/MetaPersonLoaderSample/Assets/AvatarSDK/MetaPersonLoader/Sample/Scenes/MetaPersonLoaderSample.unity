@@ -1183,6 +1183,10 @@ PrefabInstance:
       propertyPath: cacheModels
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5568330823641381, guid: 7c8f9054c4a36514a8e5e7657dbdd3eb, type: 3}
+      propertyPath: animatorController
+      value: 
+      objectReference: {fileID: 9100000, guid: 20a95633b66cbc24c9635223a675ae09, type: 2}
     - target: {fileID: 5568330823641383, guid: 7c8f9054c4a36514a8e5e7657dbdd3eb, type: 3}
       propertyPath: m_Name
       value: MetaPersonModel

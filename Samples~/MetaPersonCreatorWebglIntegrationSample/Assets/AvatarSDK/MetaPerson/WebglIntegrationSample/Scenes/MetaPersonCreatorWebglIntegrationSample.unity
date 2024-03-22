@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5568330823641381, guid: 7c8f9054c4a36514a8e5e7657dbdd3eb, type: 3}
+      propertyPath: animatorController
+      value: 
+      objectReference: {fileID: 9100000, guid: 20a95633b66cbc24c9635223a675ae09, type: 2}
     - target: {fileID: 5568330823641383, guid: 7c8f9054c4a36514a8e5e7657dbdd3eb, type: 3}
       propertyPath: m_Name
       value: MetaPersonModel
@@ -241,7 +245,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   credentials: {fileID: 446742347}
   metaPersonLoader: {fileID: 2103060694}
-  animatorController: {fileID: 9100000, guid: 20a95633b66cbc24c9635223a675ae09, type: 2}
   webViewPlaceholder: {fileID: 1019250636}
   importControls: {fileID: 1671077558}
   getAvatarButton: {fileID: 1955228327}

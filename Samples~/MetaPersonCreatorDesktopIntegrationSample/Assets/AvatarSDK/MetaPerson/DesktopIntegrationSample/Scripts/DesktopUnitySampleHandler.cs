@@ -28,8 +28,6 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 
 		public MetaPersonLoader metaPersonLoader;
 
-		public RuntimeAnimatorController animatorController;
-
 		public GameObject webViewPlaceholder;
 
 		public GameObject importControls;
@@ -149,7 +147,6 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 
 					if (isLoaded)
 					{
-						ConfigureAnimation();
 						progressText.text = string.Empty;
 						importControls.SetActive(false);
 					}
@@ -169,13 +166,6 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 				importControls.SetActive(true);
 			}
 		}
-
-		private void ConfigureAnimation()
-		{
-			HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
-			humanoidAnimatorBuilder.AddHumanoidAnimator(metaPersonLoader.avatarObject);
-			humanoidAnimatorBuilder.SetAnimatorController(animatorController, metaPersonLoader.avatarObject);
-		}
 	}
 #else
 	public class DesktopUnitySampleHandler : MonoBehaviour
@@ -183,8 +173,6 @@ namespace AvatarSDK.MetaPerson.DesktopIntegrationSample
 		public AccountCredentials credentials;
 
 		public MetaPersonLoader metaPersonLoader;
-
-		public RuntimeAnimatorController animatorController;
 
 		public GameObject webViewPlaceholder;
 

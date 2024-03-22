@@ -24,8 +24,6 @@ namespace AvatarSDK.MetaPerson.MobileIntegrationSample
 
 		public MetaPersonLoader metaPersonLoader;
 
-		public RuntimeAnimatorController animatorController;
-
 		public GameObject webViewPlaceholder;
 
 		public GameObject importControls;
@@ -153,7 +151,6 @@ namespace AvatarSDK.MetaPerson.MobileIntegrationSample
 
 					if (isLoaded)
 					{
-						ConfigureAnimation();
 						progressText.text = string.Empty;
 						importControls.SetActive(false);
 					}
@@ -172,13 +169,6 @@ namespace AvatarSDK.MetaPerson.MobileIntegrationSample
 				getAvatarButton.interactable = true;
 				importControls.SetActive(true);
 			}
-		}
-
-		private void ConfigureAnimation()
-		{
-			HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
-			humanoidAnimatorBuilder.AddHumanoidAnimator(metaPersonLoader.avatarObject);
-			humanoidAnimatorBuilder.SetAnimatorController(animatorController, metaPersonLoader.avatarObject);
 		}
 	}
 }

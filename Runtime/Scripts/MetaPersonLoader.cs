@@ -29,6 +29,10 @@ namespace AvatarSDK.MetaPerson.Loader
 
 		public bool cacheModels = false;
 
+		public bool configureAnimator = true;
+
+		public RuntimeAnimatorController animatorController = null;
+
 		public async void LoadModel(string uri, Action<float> downloadProgressCallback = null)
 		{
 			await LoadModelAsync(uri, downloadProgressCallback);
@@ -80,6 +84,17 @@ namespace AvatarSDK.MetaPerson.Loader
 				else
 				{
 					Debug.LogError("Loading glTF failed!");
+				}
+
+				if (success)
+				{
+					if (configureAnimator)
+					{
+						HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();
+						humanoidAnimatorBuilder.AddHumanoidAnimator(avatarObject);
+						if (animatorController != null)
+							humanoidAnimatorBuilder.SetAnimatorController(animatorController, avatarObject);
+					}
 				}
 
 				return success;
