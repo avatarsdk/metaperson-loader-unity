@@ -42,18 +42,7 @@ namespace AvatarSDK.MetaPerson.Loader
 					Object.Destroy(meshRenderer.gameObject);
 			}
 
-			var srcTransforms = srcAvatarObject.GetComponentsInChildren<Transform>();
 			var dstTransformsMap = GetTransformsDictionary(rootBone.gameObject);
-			foreach (Transform srcTransform in srcTransforms)
-			{
-				Transform dstTransform = null;
-				if (dstTransformsMap.TryGetValue(srcTransform.name, out dstTransform))
-				{
-					dstTransform.localPosition = srcTransform.localPosition;
-					dstTransform.localRotation = srcTransform.localRotation;
-				}
-			}
-
 			SkinnedMeshRenderer[] srcMeshRenderers = srcAvatarObject.GetComponentsInChildren<SkinnedMeshRenderer>();
 			if (srcMeshRenderers != null)
 			{
@@ -66,6 +55,7 @@ namespace AvatarSDK.MetaPerson.Loader
 						dstTransformsMap.TryGetValue(currentBones[i].name, out newBones[i]);
 					}
 					meshRenderer.bones = newBones;
+					meshRenderer.rootBone = rootBone;
 					meshRenderer.transform.SetParent(rootTransform, false);
 				}
 			}
@@ -74,6 +64,17 @@ namespace AvatarSDK.MetaPerson.Loader
 			{
 				dstAnimator.Rebind();
 				dstAnimator.Play(nameHash, 0, time);
+			}
+
+			var srcTransforms = srcAvatarObject.GetComponentsInChildren<Transform>();
+			foreach (Transform srcTransform in srcTransforms)
+			{
+				Transform dstTransform = null;
+				if (dstTransformsMap.TryGetValue(srcTransform.name, out dstTransform))
+				{
+					dstTransform.localPosition = srcTransform.localPosition;
+					dstTransform.localRotation = srcTransform.localRotation;
+				}
 			}
 
 			Object.Destroy(srcAvatarObject);
