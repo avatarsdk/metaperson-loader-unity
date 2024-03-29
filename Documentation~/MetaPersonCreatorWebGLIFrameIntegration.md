@@ -40,7 +40,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
  
  
 
-**2\.** Find **SceneHandler** object and provide your [Account Credentials]((./Documentation~/AccountCredentials.md)).
+**2\.** Find **SceneHandler** object and provide your [Account Credentials](AccountCredentials.md).
 
 ![Account Credentials](./Images/account_credentials_webgl_iframe.jpg "Account Credentials")
 
