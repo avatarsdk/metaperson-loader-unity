@@ -18,7 +18,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
  * Open *Window->Package Manager*, click on the **+** icon in the top left corner and select **Add Package From Git URL**.
  
-![Add Package From Git Url](./Images/add_package_from_git_url_webgl.jpg "Add Package From Git Url")
+![Add Package From Git Url](./Images/add_package_from_git_url.jpg "Add Package From Git Url")
 
  * Provide the Git URL of this project:
 
@@ -26,7 +26,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
  * Import **MetaPerson Creator WebGL WebView Integration Sample** as well.
 
-![Import Sample](./Images/import_webgl_integration_sample.jpg "Import Sample")
+![Import Sample](./Images/import_webgl_webview_integration_sample.jpg "Import Sample")
 
  * Open the `Assets/Samples/MetaPerson Loader/0.1.1/MetaPerson Creator WebGL WebView Integration Sample/Scenes/MetaPersonCreatorWebGLWebViewIntegrationSample.unity` scene.
 
@@ -44,11 +44,9 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
 **3\.** Find **SceneHandler** object and provide your [Account Credentials](#account-credentials).
 
-![Account Credentials](./Images/account_credentials_webgl.jpg "Account Credentials")
+![Account Credentials](./Images/account_credentials_webgl_webview.jpg "Account Credentials")
 
-**4\.** Open the *File->Build Settings* menu and click on the **WebGL**. After that click on the **Switch Platform button**.
-
-![Build Settings](./Images/build_settings_webgl.jpg "Build Settings")
+**4\.** Switch to the **WebGL** platform in **Build Settings**.
 
 **5\.** Once the platform switching process is complete, verify that the sample scene is added to build.
 
