@@ -87,8 +87,8 @@ Unity samples:
  * [Windows and macOS](./Documentation~/MetaPersonCreatorDesktopIntegration.md)
  * [Android and iOS](./Documentation~/MetaPersonCreatorMobileIntegration.md)
  * [VR Quest](https://github.com/avatarsdk/metaperson-vr-quest-sample)
- * [WebGL](./Documentation~/MetaPersonCreatorWebGLIFrameIntegration.md) (integration via IFrame)
- * [WebGL](./Documentation~/MetaPersonCreatorWebGLWebViewIntegration.md) (integration via WebView component)
+ * [WebGL - integration via IFrame](./Documentation~/MetaPersonCreatorWebGLIFrameIntegration.md)
+ * [WebGL - integration via WebView](./Documentation~/MetaPersonCreatorWebGLWebViewIntegration.md)
  
 Native samples:
  * [Android](https://github.com/avatarsdk/metaperson-android-sample)
