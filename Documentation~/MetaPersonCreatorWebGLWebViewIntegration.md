@@ -48,9 +48,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
 **4\.** Switch to the **WebGL** platform in **Build Settings**.
 
-**5\.** Once the platform switching process is complete, verify that the sample scene is added to build.
-
-![Scenes to build](./Images/scene_in_build_webgl.jpg "Scenes to build")
+**5\.** Add the `Assets/Samples/MetaPerson Loader/x.y.z/MetaPerson Creator WebGL WebView Integration Sample/Scenes/MetaPersonCreatorWebGLWebViewIntegrationSample.unity` scene into **Build Settings**
 
 **6\.** Click the **Build and Run** button and specify the destination path for your WebGL build. When the building process if finished, the application will be opened in a browser.
 
