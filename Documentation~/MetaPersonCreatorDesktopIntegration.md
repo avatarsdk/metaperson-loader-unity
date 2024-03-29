@@ -42,7 +42,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
  
 **2\.** Import [Vuplex plugin](https://store.vuplex.com/webview/windows-mac) into the project.
 
-**3\.** Find **SceneHandler** object and provide your [Account Credentials](#account-credentials).
+**3\.** Find **SceneHandler** object and provide your [Account Credentials](./Documentation~/AccountCredentials.md).
 
 ![Account Credentials](./Images/account_credentials.jpg "Account Credentials")
 
@@ -57,23 +57,6 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 **7\.** The avatar will be exported and added to the scene.
 
 ![Avatar On Scene](./Images/avatar_on_scene.JPG "Avatar On Scene")
-
-## Account Credentials
-To export models from the [MetaPerson Creator](https://metaperson.avatarsdk.com/), you'll need AvatarSDK developer account credentials. Follow these steps to obtain them:
-
-1. **Create an AvatarSDK Developer Account.**
-   Visit the [AvatarSDK Developer Signup page](https://accounts.avatarsdk.com/developer/signup/) to create your AvatarSDK developer account. If you already have an account, you can skip this step.
-
-2. **Create an Application.**
-   After successfully registering or logging in to your AvatarSDK developer account, go to the [Developer Dashboard](https://accounts.avatarsdk.com/developer/). Here, create a new application. 
-
-3. **Retrieve Your App Client ID and App Client Secret.**
-   Once your application is created, you can obtain your **App Client ID** and **App Client Secret** from the Developer Dashboard.
-
-![App Client Credentials](./Images/credentials.JPG "App Client Credentials")
-
-
-Find out more information about business integration at https://docs.metaperson.avatarsdk.com/business_integration.html. 
 
 ## How It Works
 A WebView component is required to show the [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page in Unity application. This sample uses the [Vuplex Web View](https://store.vuplex.com/webview/windows-mac) for this purpose.
