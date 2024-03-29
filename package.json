@@ -46,9 +46,14 @@
       "path": "Samples~/MetaPersonCreatorMobileIntegrationSample/Assets/AvatarSDK/MetaPerson/MobileIntegrationSample"
     },
     {
-      "displayName": "MetaPerson Creator WebGL Integration Sample",
-      "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a WebGL application.",
-      "path": "Samples~/MetaPersonCreatorWebglIntegrationSample/Assets/AvatarSDK/MetaPerson/WebglIntegrationSample"
+      "displayName": "MetaPerson Creator WebGL IFrame Integration Sample",
+      "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a WebGL application via an IFrame embeded into an HTML page.",
+      "path": "Samples~/MetaPersonCreatorWebGLIFrameIntegrationSample/Assets/AvatarSDK/MetaPerson/WebGLIFrameIntegrationSample"
+    },
+    {
+      "displayName": "MetaPerson Creator WebGL WebView Integration Sample",
+      "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a WebGL application via a WebView component on a unity scene.",
+      "path": "Samples~/MetaPersonCreatorWebGLWebViewIntegrationSample/Assets/AvatarSDK/MetaPerson/WebGLWebViewIntegrationSample"
     }
   ]
 }
