@@ -1,5 +1,5 @@
 # MetaPerson Creator - Integration Into WebGL Application 
-This sample demonstrates how to integrate the [MetaPerson Creator](https://metaperson.avatarsdk.com/) web page into **WebGL** applications via an IFrame embedded into an HTML page.
+This sample demonstrates how to integrate the [MetaPerson Creator](https://metaperson.avatarsdk.com/) web page into **WebGL** applications via an **IFrame** embedded into an HTML page.
 
 ## Reqirements
  * Unity 2021.3.19f1.
@@ -17,7 +17,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
  * Open *Window->Package Manager*, click on the **+** icon in the top left corner and select **Add Package From Git URL**.
  
-![Add Package From Git Url](./Images/add_package_from_git_url_webgl.jpg "Add Package From Git Url")
+![Add Package From Git Url](./Images/add_package_from_git_url.jpg "Add Package From Git Url")
 
  * Provide the Git URL of this project:
 
@@ -25,7 +25,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
  * Import **MetaPerson Creator WebGL IFrame Integration Sample** as well.
 
-![Import Sample](./Images/import_webgl_integration_sample.jpg "Import Sample")
+![Import Sample](./Images/import_webgl_iframe_integration_sample.jpg "Import Sample")
 
  * Open the `Assets/Samples/MetaPerson Loader/x.y.z/MetaPerson Creator WebGL IFrame Integration Sample/Scenes/MetaPersonCreatorWebGLIFrameIntegrationSample.unity` scene.
 
@@ -42,13 +42,13 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
 **2\.** Find **SceneHandler** object and provide your [Account Credentials](#account-credentials).
 
-![Account Credentials](./Images/account_credentials_webgl.jpg "Account Credentials")
+![Account Credentials](./Images/account_credentials_webgl_iframe.jpg "Account Credentials")
 
-**3\.** Open the *File->Build Settings* menu and click on the **WebGL**. After that click on the **Switch Platform button**.
+**3\.** Switch to the **WebGL** platform in **Build Settings**.
 
 ![Build Settings](./Images/build_settings_webgl.jpg "Build Settings")
 
-**4\.** Add the `Assets\AvatarSDK\MetaPerson\WebGLIFrameIntegrationSample\Scenes\MetaPersonCreatorWebGLIFrameIntegrationSample.unity` scene into Build Settings.
+**4\.** Add the `Assets/Samples/MetaPerson Loader/x.y.z/MetaPerson Creator WebGL IFrame Integration Sample/Scenes/MetaPersonCreatorWebGLIFrameIntegrationSample.unity` scene into **Build Settings**.
 
 **5\.** Click the **Build and Run** button and specify the destination path for your WebGL build. The application will be opened in a browser once the building process is completed.
 
@@ -56,11 +56,9 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
 **7\.** Select any of the sample avatars or create your own, customize it, and press the **Export** button in a top-right corner.
 
-![Export Avatar](./Images/export_avatar_webgl.JPG "Export Avatar")
+![Export Avatar](./Images/export_avatar_webgl_iframe.JPG "Export Avatar")
 
 **8\.** The avatar will be exported and added to the scene.
-
-![Avatar On Scene](./Images/avatar_on_scene_webgl.JPG "Avatar On Scene")
 
 ## Account Credentials
 To export models from the [MetaPerson Creator](https://metaperson.avatarsdk.com/), you'll need AvatarSDK developer account credentials. Follow these steps to obtain them:
@@ -82,8 +80,8 @@ Find out more information about business integration at https://docs.metaperson.
 ## How It Works
 An IFrame element is embedded into an app's HTML page. The IFrame loads `https://metaperson.avatarsdk.com/iframe.html` page. Commnications between the app and the MetaPerson Creator page are perfromed via messaging mechanism.
 
-1. A [MetaPersonCreatorIFrame.jslib script](./../Samples~/MetaPersonCreatorWebGLIFrameIntegrationSample/Assets/AvatarSDK/MetaPerson/WebGLIFrameIntegrationSample/Plgins/WebGL/MetaPersonCreatorIFrame.jslib) is responsibe for creating IFrame, configing MetaPerson Creator page and sending an expoted avatar into an application.
-2. To open the MetaPerson Creator page, a `showMetaPersonCreator` method is called. It takes the AvatarSDK developer account credentials, an object name and a method that should be called when an avatar is exported.
+1\. A [MetaPersonCreatorIFrame.jslib script](./../Samples~/MetaPersonCreatorWebGLIFrameIntegrationSample/Assets/AvatarSDK/MetaPerson/WebGLIFrameIntegrationSample/Plugins/WebGL/MetaPersonCreatorIFrame.jslib) is responsibe for creating IFrame, configing MetaPerson Creator page and sending an expoted avatar into an application.
+2\. To open the MetaPerson Creator page, a `showMetaPersonCreator` method is called. It takes the AvatarSDK developer account credentials, an object name and a method that should be called when an avatar is exported.
 ```cs
 [DllImport("__Internal")]
 private static extern void showMetaPersonCreator(string clientId, string clientSecret, string modelUrlReceiverObjectName, string modelUrlReceiverMethodName);
@@ -93,11 +91,11 @@ public void OnGetAvatarButtonClick()
     showMetaPersonCreator(credentials.clientId, credentials.clientSecret, "SceneHandler", "HandleModelExportData");
 }
 ```
-3. This method subscribes to the `messages` events to be ready to receive messages from the MetaPerson Creator page.
+3\. This method subscribes to the `messages` events to be ready to receive messages from the MetaPerson Creator page.
 ```js
 window.addEventListener("message", onWindowMessage);
 ```
-4. It creates the IFrame with some additional HTML elements and configures them. The IFrame is shown instead of a unity canvas with the application.
+4\. It creates the IFrame with some additional HTML elements and configures them. The IFrame is shown instead of a unity canvas with the application.
 ```js
 var metaPersonCreatorContainer = document.createElement('div');
 metaPersonCreatorContainer.setAttribute('id', 'metaperson-creator-container');
@@ -117,7 +115,7 @@ iframe.height = unityCanvas.height;
 unityCanvas.style.display = "none";
 metaPersonCreatorContainer.style.display = "block";
 ```
-5. Once the MetaPerson Creator page is loaded, it sends the `unity_loaded` event. It is time to send **authentication**, **export** and **UI** parameters. 
+5\. Once the MetaPerson Creator page is loaded, it sends the `unity_loaded` event. It is time to send **authentication**, **export** and **UI** parameters. 
 Look at the [JS API documentation](https://docs.metaperson.avatarsdk.com/js_api.html) to get more information about available parametes.
 ```js
 function onWindowMessage(evt)
@@ -174,7 +172,7 @@ function configureMetaPersonCreator()
   iframe.contentWindow.postMessage(uiParametersMessage, "*");
 }
 ```
-6. Once the avatar is expoted, MetaPerson Creator page sends the `model_exported` event with a link to this model. The expoted model data is packed into json and is sent back into C# method specified in the beginning.  
+6\. Once the avatar is expoted, MetaPerson Creator page sends the `model_exported` event with a link to this model. The exported model data is packed into json and is sent back to C# method that was specified in the beginning.
 ```js
 function onWindowMessage(evt)
 {
@@ -199,7 +197,7 @@ function onWindowMessage(evt)
   }
 }
 ```
-7. The received model is loaded by the `MetaPersonLoader`.
+7\. The received model is loaded by the `MetaPersonLoader`.
 ```cs
 public async void HandleModelExportData(string json)
 {
