@@ -46,8 +46,6 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
 **3\.** Switch to the **WebGL** platform in **Build Settings**.
 
-![Build Settings](./Images/build_settings_webgl.jpg "Build Settings")
-
 **4\.** Add the `Assets/Samples/MetaPerson Loader/x.y.z/MetaPerson Creator WebGL IFrame Integration Sample/Scenes/MetaPersonCreatorWebGLIFrameIntegrationSample.unity` scene into **Build Settings**.
 
 **5\.** Click the **Build and Run** button and specify the destination path for your WebGL build. The application will be opened in a browser once the building process is completed.
