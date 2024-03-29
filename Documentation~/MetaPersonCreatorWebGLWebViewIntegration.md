@@ -42,7 +42,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
  
 **2\.** Import [Vuplex plugin](https://store.vuplex.com/webview/webgl) into the project.
 
-**3\.** Find **SceneHandler** object and provide your [Account Credentials]((./Documentation~/AccountCredentials.md)).
+**3\.** Find **SceneHandler** object and provide your [Account Credentials](AccountCredentials.md).
 
 ![Account Credentials](./Images/account_credentials_webgl_webview.jpg "Account Credentials")
 
