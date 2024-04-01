@@ -35,7 +35,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
  * Open the `Assets/AvatarSDK/MetaPerson/MobileIntegrationSample/Scenes/MetaPersonCreatorMobileIntegrationSample.unity` scene.
 
-**2\.** Find **SceneHandler** object and provide your [Account Credentials]((./Documentation~/AccountCredentials.md)).
+**2\.** Find **SceneHandler** object and provide your [Account Credentials](AccountCredentials.md).
 
 ![Account Credentials](./Images/account_credentials_mobile.jpg "Account Credentials")
 
@@ -56,9 +56,9 @@ The sample shows the [MetaPerson Creator](https://mobile.metaperson.avatarsdk.co
 
 Here's basic overview of how it works:
 
-1. Load the following page in a WebView component: `https://mobile.metaperson.avatarsdk.com/generator`.
+1\. Load the following page in a WebView component: `https://mobile.metaperson.avatarsdk.com/generator`.
 
-2. Once the page is loaded, the following JavaScript code is executed. It subscribes to `message` events to be ready to receive events from the MetaPerson Loader and call the `sendConfigurationParams` method.
+2\. Once the page is loaded, the following JavaScript code is executed. It subscribes to `message` events to be ready to receive events from the MetaPerson Loader and call the `sendConfigurationParams` method.
 
 ```js
 function sendConfigurationParams() {
@@ -114,9 +114,11 @@ window.addEventListener('message', onWindowMessage);
 
 sendConfigurationParams();
 ```
-3. The `sendConfigurationParams` method posts messages with configration parameters to the MetaPerson Creator. It specifies **authentication credentials**, **export** and **UI** parameters.
-4. When the MetaPerson Creator exports an avatar, it sends the `model_exported` event that contains a URL to a GLB file with the avatar.
-5. The URL of the exported avatar is passed to the app and the model is loaded to the scene by using **MetaPerson Loader**.
+3\. The `sendConfigurationParams` method posts messages with configration parameters to the MetaPerson Creator. It specifies **authentication credentials**, **export** and **UI** parameters.
+
+4\. When the MetaPerson Creator exports an avatar, it sends the `model_exported` event that contains a URL to a GLB file with the avatar.
+
+5\. The URL of the exported avatar is passed to the app and the model is loaded to the scene by using **MetaPerson Loader**.
 ```js
 if (evtName === 'model_exported') {
   console.log('got model_exported event');
