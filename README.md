@@ -86,6 +86,7 @@ You have the flexibility to modify these template materials to suit your specifi
 Unity samples:
  * [Windows and macOS](./Documentation~/MetaPersonCreatorDesktopIntegration.md)
  * [Android and iOS](./Documentation~/MetaPersonCreatorMobileIntegration.md)
+ * [Android and iOS via Vuplex webview](./Documentation~/MetaPersonCreatorMobileIntegrationViaVuplex.md)
  * [VR Quest](https://github.com/avatarsdk/metaperson-vr-quest-sample)
  * [WebGL - integration via IFrame](./Documentation~/MetaPersonCreatorWebGLIFrameIntegration.md)
  * [WebGL - integration via WebView](./Documentation~/MetaPersonCreatorWebGLWebViewIntegration.md)

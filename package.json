@@ -46,6 +46,11 @@
       "path": "Samples~/MetaPersonCreatorMobileIntegrationSample/Assets/AvatarSDK/MetaPerson/MobileIntegrationSample"
     },
     {
+      "displayName": "MetaPerson Creator Mobile Integration Via Vuplex Sample",
+      "description": "The sample demonstrates how to integrate MetaPerson Creator web page via Vuplex WebView into a mobile (android/ios) application .",
+      "path": "Samples~/MetaPersonCreatorMobileIntegrationViaVuplexSample/Assets/AvatarSDK/MetaPerson/MobileIntegrationViaVuplexSample"
+    },
+    {
       "displayName": "MetaPerson Creator WebGL IFrame Integration Sample",
       "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a WebGL application via an IFrame embeded into an HTML page.",
       "path": "Samples~/MetaPersonCreatorWebGLIFrameIntegrationSample/Assets/AvatarSDK/MetaPerson/WebGLIFrameIntegrationSample"

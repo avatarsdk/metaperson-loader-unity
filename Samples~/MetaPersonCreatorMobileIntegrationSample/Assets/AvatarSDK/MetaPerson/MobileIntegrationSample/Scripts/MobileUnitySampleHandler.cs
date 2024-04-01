@@ -14,7 +14,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Vuplex.WebView;
 
 namespace AvatarSDK.MetaPerson.MobileIntegrationSample
 {
@@ -24,7 +23,7 @@ namespace AvatarSDK.MetaPerson.MobileIntegrationSample
 
 		public MetaPersonLoader metaPersonLoader;
 
-		public GameObject webViewPlaceholder;
+		public GameObject uniWebViewGameObject;
 
 		public GameObject importControls;
 
@@ -32,48 +31,37 @@ namespace AvatarSDK.MetaPerson.MobileIntegrationSample
 
 		public Text progressText;
 
-		private CanvasWebViewPrefab canvasWebViewPrefab;
-
-		private bool isWebViewInitialized = false;
-
 		private void Start()
 		{
-			canvasWebViewPrefab = webViewPlaceholder.GetComponentInChildren<CanvasWebViewPrefab>();
-
 			if (credentials.IsEmpty())
-				progressText.text = "Account credentials are not provided!";
-		}
-
-		public async void OnGetAvatarButtonClick()
-		{
-			webViewPlaceholder.SetActive(true);
-
-			if (!isWebViewInitialized)
 			{
-				canvasWebViewPrefab.LogConsoleMessages = true;
-
-				await canvasWebViewPrefab.WaitUntilInitialized();
-
-				await canvasWebViewPrefab.WebView.WaitForNextPageLoadToFinish();
-
-				ConfigureJSApi();
-
-				isWebViewInitialized = true;
+				progressText.text = "Account credentials are not provided!";
+				getAvatarButton.interactable = false;
 			}
 		}
 
-		public void OnCloseButtonClick()
+		public void OnGetAvatarButtonClick()
 		{
-			webViewPlaceholder.SetActive(false);
+			UniWebView uniWebView = uniWebViewGameObject.GetComponent<UniWebView>();
+			if (uniWebView == null)
+			{
+				uniWebView = uniWebViewGameObject.AddComponent<UniWebView>();
+				uniWebView.EmbeddedToolbar.Hide();
+				uniWebView.Frame = new Rect(0, 0, Screen.width, Screen.height);
+			}
+
+			uniWebView.OnPageFinished += OnPageFinished;
+			uniWebView.OnMessageReceived += OnMessageReceived;
+			uniWebView.Load("https://mobile.metaperson.avatarsdk.com/generator");
+			uniWebView.Show();
 		}
 
-
-		private void ConfigureJSApi()
+		private void OnPageFinished(UniWebView webView, int statusCode, string url)
 		{
 			string javaScriptCode = @"
 					{
 						function sendConfigurationParams() {
-							console.log('sendConfigurationParams');
+							console.log('sendConfigurationParams - called');
 
 							const CLIENT_ID = '" + credentials.clientId + @"';
 							const CLIENT_SECRET = '" + credentials.clientSecret + @"';
@@ -102,72 +90,55 @@ namespace AvatarSDK.MetaPerson.MobileIntegrationSample
 						}
 
 						function onWindowMessage(evt) {
-							console.log('onWindowMessage: ' + evt.data);
 							if (evt.type === 'message') {
 								if (evt.data?.source === 'metaperson_creator') {
 									let data = evt.data;
 									let evtName = data?.eventName;
 									if (evtName === 'unity_loaded' ||
 										evtName === 'mobile_loaded') {
+										console.log('got mobile_loaded event');
 										sendConfigurationParams();
 									} else if (evtName === 'model_exported') {
-										console.log('model url: ' + data.url);
-										console.log('gender: ' + data.gender);
-										console.log('avatar code: ' + data.avatarCode);
-										window.vuplex.postMessage(evt.data);
+										console.log('got model_exported event');
+										const params = new URLSearchParams();
+										params.append('url', data.url);
+										params.append('gender', data.gender);
+										params.append('avatarCode', data.avatarCode);
+										window.location.href = 'uniwebview://model_exported?' + params.toString();
 									}
 								}
 							}
 						}
 						window.addEventListener('message', onWindowMessage);
 
-						if (window.metaPersonCreator && window.metaPersonCreator.isLoaded)
-							sendConfigurationParams();
+						sendConfigurationParams();
 					}
 				";
 
-			canvasWebViewPrefab.WebView.ExecuteJavaScript(javaScriptCode, OnJavaScriptExecuted);
-			canvasWebViewPrefab.WebView.MessageEmitted += OnWebViewMessageReceived;
+			webView.AddJavaScript(javaScriptCode, payload => Debug.LogWarningFormat("JS exection result: {0}", payload.resultCode));
 		}
 
-		private void OnJavaScriptExecuted(string executionResult)
+		private async void OnMessageReceived(UniWebView webView, UniWebViewMessage message)
 		{
-			Debug.LogFormat("JS execution result: {0}", executionResult);
-		}
-
-		private async void OnWebViewMessageReceived(object sender, EventArgs<string> args)
-		{
-			Debug.LogFormat("Got WebView message: {0}", args.Value);
-
-			try
+			if (message.Path == "model_exported")
 			{
-				ModelExportedEvent modelExportedEvent = JsonUtility.FromJson<ModelExportedEvent>(args.Value);
-				if (modelExportedEvent.eventName == "model_exported" && modelExportedEvent.source == "metaperson_creator")
+				Debug.LogWarningFormat("Start avatar loading from url: {0}", message.Args["url"]);
+
+				webView.Hide();
+				getAvatarButton.interactable = false;
+
+				bool isLoaded = await metaPersonLoader.LoadModelAsync(message.Args["url"], p => progressText.text = string.Format("Downloading avatar: {0}%", (int)(p * 100)));
+				if (isLoaded)
 				{
-					Debug.LogFormat("Model exported: {0}", modelExportedEvent.url);
-					webViewPlaceholder.SetActive(false);
-					getAvatarButton.interactable = false;
-					bool isLoaded = await metaPersonLoader.LoadModelAsync(modelExportedEvent.url, p => progressText.text = string.Format("Downloading avatar: {0}%", (int)(p * 100)));
-
-					if (isLoaded)
-					{
-						progressText.text = string.Empty;
-						importControls.SetActive(false);
-					}
-					else
-					{
-						getAvatarButton.interactable = true;
-						progressText.text = "Unable to load the model";
-						importControls.SetActive(true);
-					}
+					progressText.text = string.Empty;
+					importControls.SetActive(false);
 				}
-			}
-			catch (Exception exc)
-			{
-				Debug.LogErrorFormat("Unable to parse message: {0}. Exception: {1}", args.Value, exc);
-				progressText.text = "Unable to load the model";
-				getAvatarButton.interactable = true;
-				importControls.SetActive(true);
+				else
+				{
+					getAvatarButton.interactable = true;
+					progressText.text = "Unable to load the model";
+					importControls.SetActive(true);
+				}
 			}
 		}
 	}
