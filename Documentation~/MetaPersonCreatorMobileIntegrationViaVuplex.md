@@ -40,7 +40,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
  
 **2\.** Import Vuplex plugin for [Android](https://store.vuplex.com/webview/android) or [iOS](https://store.vuplex.com/webview/ios) into the project.
 
-**3\.** Find the **SceneHandler** object and provide your [Account Credentials]((./Documentation~/AccountCredentials.md)).
+**3\.** Find the **SceneHandler** object and provide your [Account Credentials](AccountCredentials.md).
 
 ![Account Credentials](./Images/account_credentials_mobile.jpg "Account Credentials")
 
@@ -63,9 +63,9 @@ The [MetaPerson Creator](https://metaperson.avatarsdk.com/iframe.html) page comm
 
 Here's how it works:
 
-1. Load the following page in a WebView component: `https://mobile.metaperson.avatarsdk.com/generator`.
+1\. Load the following page in a WebView component: `https://mobile.metaperson.avatarsdk.com/generator`.
 
-2. Once the page is loaded, the following JavaScript code is executed. It checks if the `window.metaPersonCreator.isLoaded` or waits for a special `mobile_loaded` event that indicates that the MetaPerson Creator page is ready for message communication. 
+2\. Once the page is loaded, the following JavaScript code is executed. It checks if the `window.metaPersonCreator.isLoaded` or waits for a special `mobile_loaded` event that indicates that the MetaPerson Creator page is ready for message communication. 
 After that the app posts messages with authentication, export, and UI parameters.
 
 ```javascript
@@ -121,7 +121,7 @@ window.addEventListener('message', onWindowMessage);
 if (window.metaPersonCreator && window.metaPersonCreator.isLoaded)
   sendConfigurationParams();
 ```
-3. When the MetaPerson Creator exports an avatar, it sends the `model_exported` event that contains a URL to a GLB file with the avatar.
+3\. When the MetaPerson Creator exports an avatar, it sends the `model_exported` event that contains a URL to a GLB file with the avatar.
 
 Implementation details can be found in the [MobileUnitySampleHandler.cs script](./../Samples~/MetaPersonCreatorMobileIntegrationViaVuplexSample/Assets/AvatarSDK/MetaPerson/MobileIntegrationViaVuplexSample/Scripts/MobileUnitySampleHandler.cs).
 
