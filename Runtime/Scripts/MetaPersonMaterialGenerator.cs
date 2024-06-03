@@ -46,26 +46,26 @@ namespace AvatarSDK.MetaPerson.Loader
 		private static bool? isDXT5Encoding = null;
 
 		#region IMaterialGenerator
-		public UnityEngine.Material GenerateMaterial(MaterialBase gltfMaterial, IGltfReadable gltf, bool pointsSupport = false)
+		public virtual UnityEngine.Material GenerateMaterial(MaterialBase gltfMaterial, IGltfReadable gltf, bool pointsSupport = false)
 		{
 			if (gltfMaterial.name == "AvatarBody" && bodyMaterial != null)
-				return GenerateMaterial(bodyMaterial, gltfMaterial, gltf);
+				return GenerateBodyMaterial(bodyMaterial, gltfMaterial, gltf);
 			else if (gltfMaterial.name == "AvatarHead" && headMaterial != null)
-				return GenerateMaterial(headMaterial, gltfMaterial, gltf);
+				return GenerateHeadMaterial(headMaterial, gltfMaterial, gltf);
 			else if (gltfMaterial.name == "AvatarEyelashes" && eyelashesMaterial != null)
-				return GenerateMaterial(eyelashesMaterial, gltfMaterial, gltf, false);
+				return GenerateEyelashesMaterial(eyelashesMaterial, gltfMaterial, gltf, false);
 			else if (gltfMaterial.name.Contains("Cornea") && corneaMaterial != null)
-				return GenerateMaterial(corneaMaterial, gltfMaterial, gltf);
+				return GenerateCorneaMaterial(corneaMaterial, gltfMaterial, gltf);
 			else if (gltfMaterial.name.Contains("Eyeball") && eyeballMaterial != null)
-				return GenerateMaterial(eyeballMaterial, gltfMaterial, gltf);
+				return GenerateEyeballMaterial(eyeballMaterial, gltfMaterial, gltf);
 			else if (gltfMaterial.name.Contains("Teeth") && teethMaterial != null)
-				return GenerateMaterial(teethMaterial, gltfMaterial, gltf);
+				return GenerateTeethMaterial(teethMaterial, gltfMaterial, gltf);
 			else if (gltfMaterial.name == "haircut" && haircutMaterial != null)
-				return GenerateMaterial(haircutMaterial, gltfMaterial, gltf, false);
+				return GenerateHaircutMaterial(haircutMaterial, gltfMaterial, gltf, false);
 			else if (gltfMaterial.name == "glasses" && glassesMaterial != null)
-				return GenerateMaterial(glassesMaterial, gltfMaterial, gltf);
+				return GenerateGlassesMaterial(glassesMaterial, gltfMaterial, gltf);
 			else if (gltfMaterial.name.Contains("outfit") && outfitMaterial != null)
-				return GenerateMaterial(outfitMaterial, gltfMaterial, gltf);
+				return GenerateOutfitMaterial(outfitMaterial, gltfMaterial, gltf);
 
 			return GenerateMaterial(defaultMaterial, gltfMaterial, gltf);
 		}
@@ -85,6 +85,51 @@ namespace AvatarSDK.MetaPerson.Loader
 		{
 			foreach (Texture2D texture in texturesToDestroy)
 				Destroy(texture);
+		}
+
+		protected virtual UnityEngine.Material GenerateBodyMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GenerateHeadMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GenerateEyelashesMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GenerateCorneaMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GenerateEyeballMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GenerateTeethMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GenerateHaircutMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GenerateGlassesMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GenerateOutfitMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
 		}
 
 		private UnityEngine.Material GenerateMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
