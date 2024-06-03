@@ -74,11 +74,16 @@ bool isModelLoaded = await metaPersonLoader.LoadModelAsync(modelUrl, p => Debug.
 The [MetaPersonMaterialGenerator](./Runtime/Scripts/MetaPersonMaterialGenerator.cs) component offers preconfigured materials to be used in place of the default materials provided by [glTFast](https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.0/manual/index.html). It also ensures that textures are set up correctly.
 
 This component includes the following materials:
- * **Default Material**: This material is utilized for rendering Head, Body, Eyes, Mouth, and Outfits meshes. It is based on the **Standard** opaque shader.
- * **Eyelashes Material**: This material is utilized for rendering Eyelashes meshes. It is based on the **Standard** fade shader.
- * **Haircut Material**: This material is utilized for rendering Haircuts meshes. The shader for this material can be found [here](./Runtime/Shaders/haircuts/avatar_sdk_haircut_standard.shader).
- * **Glasses Material**: This material is utilized for rendering Glasses meshes. It is based on the [double-sided **Standard** fade shader](./Runtime/Shaders/avatar_sdk_standard_double_sided.shader).
-You have the flexibility to modify these template materials to suit your specific needs, or you can implement a custom version of the **MaterialGenerator**.
+ * **Default Material**: This material is used by default.
+ * **Body Material**: This material is used to render avatar's body.
+ * **Head Material**: This material is used to render avatar's head.
+ * **Eyelashes Material**: This material is used to render eyelashes.
+ * **Cornea Material**: This material is used to render cornea.
+ * **Eyeball Material**: This material is used to render eyeballs.
+ * **Outfit Material**: This material is used to render outfits.
+ * **Haircut Material**: This material is used to render haircuts.
+ * **Glasses Material**: This material is used to render glasses.
+You have the flexibility to modify the provided template materials to meet your specific reqirements, or you can implement a custom version of the **MaterialGenerator**.
 
 ## How To Integrate MetaPerson Creator Into Your Application
 [MetaPerson Creator](https://metaperson.avatarsdk.com/)  web page can be integrated into your application, giving your clients the ability to create their custom avatars and import them into your product.

@@ -23,7 +23,19 @@ namespace AvatarSDK.MetaPerson.Loader
 	{
 		public UnityEngine.Material defaultMaterial;
 
+		public UnityEngine.Material bodyMaterial;
+
+		public UnityEngine.Material headMaterial;
+
 		public UnityEngine.Material eyelashesMaterial;
+
+		public UnityEngine.Material corneaMaterial;
+
+		public UnityEngine.Material eyeballMaterial;
+
+		public UnityEngine.Material teethMaterial;
+
+		public UnityEngine.Material outfitMaterial;
 
 		public UnityEngine.Material haircutMaterial;
 
@@ -36,12 +48,25 @@ namespace AvatarSDK.MetaPerson.Loader
 		#region IMaterialGenerator
 		public UnityEngine.Material GenerateMaterial(MaterialBase gltfMaterial, IGltfReadable gltf, bool pointsSupport = false)
 		{
-			if (gltfMaterial.name == "AvatarEyelashes")
+			if (gltfMaterial.name == "AvatarBody" && bodyMaterial != null)
+				return GenerateMaterial(bodyMaterial, gltfMaterial, gltf);
+			else if (gltfMaterial.name == "AvatarHead" && headMaterial != null)
+				return GenerateMaterial(headMaterial, gltfMaterial, gltf);
+			else if (gltfMaterial.name == "AvatarEyelashes" && eyelashesMaterial != null)
 				return GenerateMaterial(eyelashesMaterial, gltfMaterial, gltf, false);
-			if (gltfMaterial.name == "haircut")
+			else if (gltfMaterial.name.Contains("Cornea") && corneaMaterial != null)
+				return GenerateMaterial(corneaMaterial, gltfMaterial, gltf);
+			else if (gltfMaterial.name.Contains("Eyeball") && eyeballMaterial != null)
+				return GenerateMaterial(eyeballMaterial, gltfMaterial, gltf);
+			else if (gltfMaterial.name.Contains("Teeth") && teethMaterial != null)
+				return GenerateMaterial(teethMaterial, gltfMaterial, gltf);
+			else if (gltfMaterial.name == "haircut" && haircutMaterial != null)
 				return GenerateMaterial(haircutMaterial, gltfMaterial, gltf, false);
-			if (gltfMaterial.name == "glasses")
+			else if (gltfMaterial.name == "glasses" && glassesMaterial != null)
 				return GenerateMaterial(glassesMaterial, gltfMaterial, gltf);
+			else if (gltfMaterial.name.Contains("outfit") && outfitMaterial != null)
+				return GenerateMaterial(outfitMaterial, gltfMaterial, gltf);
+
 			return GenerateMaterial(defaultMaterial, gltfMaterial, gltf);
 		}
 
