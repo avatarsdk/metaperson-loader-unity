@@ -83,6 +83,7 @@ This component includes the following materials:
  * **Outfit Material**: This material is used to render outfits.
  * **Haircut Material**: This material is used to render haircuts.
  * **Glasses Material**: This material is used to render glasses.
+ 
 You have the flexibility to modify the provided template materials to meet your specific reqirements, or you can implement a custom version of the **MaterialGenerator**.
 
 ## How To Integrate MetaPerson Creator Into Your Application
