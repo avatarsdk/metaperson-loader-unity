@@ -47,6 +47,40 @@ To load another model, provide a URL to the GLB/GLTF model or a ZIP archive cont
 
 ![Change model URL](./Documentation~/Images/change_model_url.JPG "Change Model URL")
 
+<!---
+|||||     A note from the scene user who was confused for a while ;)
+---->
+
+##### Serving your own Meta Avatar Model
+
+The model URL does not have to be provided by `metaperson.avatarsdk.com`.
+You may set the URL field to your link to the GLB file. For example:
+
+```
+// In fact, it may be more convenient to set the public field value in the
+// Inspector window of the SceneHandler GameObject in the Unity Editor.
+//
+public string modelUri = "http://example.yourgame.com/route/of/the/entrypoint/to/your/glbfile/filename.glb";
+```
+The Metaperson Loader Unity Scene Does not require clients to provide `Client_ID` or `Secret_Key`, send additional special HTTP request headers, or make any extra effort beyond making GLB files accessible by the URL they provide.
+The request is sent using the Scene script, a basic GET request.
+Following up the custom GLB file URL, the `example.yourgame.com` Server can display the Log, similar to the following:
+
+```
+"GET /route/of/the/entrypoint/to/your/glbfile/filename.glb HTTP/1.1" 200 14585949 "-" "UnityPlayer/2021.3.11f1 (UnityWebRequest/1.0, libcurl/7.84.0-DEV)"
+```
+Where `14585949` is the size of the GLB file.
+
+Of course, creating a GLB model is also vital for this example.
+The GLB file can be created using the modified [Meta Person Creator](https://metaperson.avatarsdk.com/).
+It can be integrated using your website or localhost web app HTML's `<iframe>`.
+Using Meta person [JS API](https://docs.metaperson.avatarsdk.com/js_api)), the client of IFRAME can set the export parameter to `GLB`.
+Using customised Meta Person Creator and Meta Person Loader Scene, one can create unique projects with realistic human avatars, created with minimal labour.
+
+<!---
+|||||    End of the little note.
+---->
+
 ## How It Works
 This package uses [glTFast](https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.0/manual/index.html) to load MetaPerson models in **GLB/GLTF** format.
 
