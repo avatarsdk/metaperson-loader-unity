@@ -42,22 +42,32 @@ namespace AvatarSDK.MetaPerson.Loader
 		{
 			try
 			{
-				byte[] modelBytes = null;
 				Uri modelUri = new Uri(uri);
-				if (cacheModels)
-					modelUri = MetaPersonCache.ConvertToCacheUriIfExists(modelUri);
+				string modelLocalFilePath = string.Empty;
 
-				if (modelUri.IsFile)
-					modelBytes = File.ReadAllBytes(modelUri.LocalPath);
+				if (!modelUri.IsFile)
+				{
+					if (cacheModels)
+						modelLocalFilePath = MetaPersonCache.GetModelFilePathByUri(modelUri);
+
+					if (!File.Exists(modelLocalFilePath))
+					{
+						modelLocalFilePath = await DownloadAndSaveModelAsync(modelUri.AbsoluteUri, downloadProgressCallback);
+						if (string.IsNullOrEmpty(modelLocalFilePath))
+							return false;
+					}
+				}
 				else
 				{
-					modelBytes = await DownloadFileAsync(modelUri.AbsoluteUri, downloadProgressCallback);
-					if (cacheModels)
-						MetaPersonCache.SaveModel(modelUri, modelBytes);
+					modelLocalFilePath = modelUri.LocalPath;
 				}
 
-				if (uri.EndsWith("zip"))
-					modelBytes = Unzip(modelBytes);
+				if (!File.Exists(modelLocalFilePath))
+				{
+					Debug.LogErrorFormat("File doesn't exist: {0}", modelLocalFilePath);
+					return false;
+				}
+				byte[] modelBytes = File.ReadAllBytes(modelLocalFilePath);
 
 				ImportSettings importSettings = new ImportSettings();
 				importSettings.GenerateMipMaps = true;
@@ -68,7 +78,7 @@ namespace AvatarSDK.MetaPerson.Loader
 				downloadProgressCallback?.Invoke(1.0f);
 
 				var gltfImporter = new GltfImport(materialGenerator: materialGenerator);
-				var success = await gltfImporter.Load(modelBytes, importSettings: importSettings);
+				var success = await gltfImporter.Load(modelBytes, uri: new Uri(modelLocalFilePath), importSettings: importSettings);
 				if (materialGenerator != null)
 					materialGenerator.DestroyUnusedTextures();
 
@@ -97,6 +107,12 @@ namespace AvatarSDK.MetaPerson.Loader
 					}
 				}
 
+				if (!cacheModels && !modelUri.IsFile)
+				{
+					string modelDirPath =  MetaPersonCache.GetModelDirByUri(modelUri);
+					Directory.Delete(modelDirPath, true);
+				}
+
 				return success;
 			}
 			catch (Exception exc)
@@ -112,9 +128,9 @@ namespace AvatarSDK.MetaPerson.Loader
 				LoadModel(modelUri);
 		}
 
-		private async Task<byte[]> DownloadFileAsync(string url, Action<float> progressCallback = null)
+		private async Task<string> DownloadAndSaveModelAsync(string uri, Action<float> progressCallback = null)
 		{
-			UnityWebRequest request = UnityWebRequest.Get(url);
+			UnityWebRequest request = UnityWebRequest.Get(uri);
 			UnityWebRequestAsyncOperation requestAsyncOperation = request.SendWebRequest();
 			while (!requestAsyncOperation.isDone)
 			{
@@ -124,7 +140,22 @@ namespace AvatarSDK.MetaPerson.Loader
 
 			if (request.result == UnityWebRequest.Result.Success)
 			{
-				return request.downloadHandler.data;
+				byte[] downloadedModelBytes = request.downloadHandler.data;
+				if (uri.ToLower().EndsWith("zip"))
+				{
+					string modelDirPath = MetaPersonCache.GetModelDirByUri(new Uri(uri));
+					ExtractArchive(downloadedModelBytes, modelDirPath);
+					return MetaPersonCache.GetModelFilePathByUri(new Uri(uri));
+				}
+				else
+				{
+					string modelFilePath = MetaPersonCache.GetModelFilePathByUri(new Uri(uri));
+					string modelDirPath = Path.GetDirectoryName(modelFilePath);
+					if (!Directory.Exists(modelDirPath))
+						Directory.CreateDirectory(modelDirPath);
+					File.WriteAllBytes(modelFilePath, downloadedModelBytes);
+					return modelFilePath;
+				}
 			}
 			else
 			{
@@ -133,15 +164,17 @@ namespace AvatarSDK.MetaPerson.Loader
 			}
 		}
 
-		private byte[] Unzip(byte[] zipBytes)
+		private void ExtractArchive(byte[] zipBytes, string outputDir)
 		{
+			if (!Directory.Exists(outputDir))
+				Directory.CreateDirectory(outputDir);
+
 			Dictionary<string, byte[]> extractedFiles = ZipUtils.Unzip(zipBytes);
 			foreach(var pair in extractedFiles)
 			{
-				if (pair.Key.EndsWith("glb"))
-					return pair.Value;
+				string filePath = Path.Combine(outputDir, pair.Key);
+				File.WriteAllBytes(filePath, pair.Value);
 			}
-			return null;
 		}
 	}
 }

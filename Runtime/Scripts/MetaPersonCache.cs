@@ -19,39 +19,48 @@ namespace AvatarSDK.MetaPerson.Loader
 {
 	public static class MetaPersonCache
 	{
-		public static string GetModelPath(Uri uri)
+		public static string GetModelFilePathByUri(Uri uri)
 		{
 			if (!uri.IsFile)
 			{
 				List<string> directories = uri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-				if (directories != null)
+				directories.Insert(0, uri.Host);
+				directories.Insert(0, GetRootDirectory());
+				string modelFilePath = Path.Combine(directories.ToArray());
+
+				if (modelFilePath.ToLower().EndsWith("glb") || modelFilePath.ToLower().EndsWith("gltf"))
+					return modelFilePath;
+
+				string modelDirPath = Path.GetDirectoryName(modelFilePath);
+				if (Directory.Exists(modelDirPath))
 				{
-					directories.Insert(0, uri.Host);
-					directories.Insert(0, GetRootDirectory());
-					return Path.Combine(directories.ToArray());
+					string[] glbFiles = Directory.GetFiles(modelDirPath, "*.glb");
+					if (glbFiles != null && glbFiles.Length > 0)
+						return glbFiles[0];
+
+					string[] gltfFiles = Directory.GetFiles(modelDirPath, "*.gltf");
+					if (gltfFiles != null && gltfFiles.Length > 0)
+						return gltfFiles[0];
 				}
-			}
 
-			return string.Empty;
+				return string.Empty;
+			}
+			else
+				return uri.LocalPath;
 		}
 
-		public static Uri ConvertToCacheUriIfExists(Uri uri)
+		public static string GetModelDirByUri(Uri uri)
 		{
-			string modelPath = GetModelPath(uri);
-			if (File.Exists(modelPath))
+			if (uri.IsFile)
+				return Path.GetDirectoryName(uri.LocalPath);
+			else
 			{
-				return new Uri(modelPath);
+				List<string> directories = uri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+				directories.Insert(0, uri.Host);
+				directories.Insert(0, GetRootDirectory());
+				string modelFilePath = Path.Combine(directories.ToArray());
+				return Path.GetDirectoryName(modelFilePath);
 			}
-			return uri;
-		}
-
-		public static void SaveModel(Uri uri, byte[] modelBytes)
-		{
-			string modelPath = GetModelPath(uri);
-			string modelDir = Path.GetDirectoryName(modelPath);
-			if (!Directory.Exists(modelDir))
-				Directory.CreateDirectory(modelDir);
-			File.WriteAllBytes(modelPath, modelBytes);
 		}
 
 		public static void ClearCache()
