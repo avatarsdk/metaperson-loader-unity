@@ -86,6 +86,17 @@ This component includes the following materials:
  
 You have the flexibility to modify the provided template materials to meet your specific reqirements, or you can implement a custom version of the **MaterialGenerator**.
 
+## How to Obtain a Model in GLB Format
+By default, [MetaPerson Creator](https://metaperson.avatarsdk.com/) exports models in **FBX** format. If you want to export a model in **GLB** format, follow these steps:
+
+1. Run **MetaPerson Creator** in [business integration](https://docs.metaperson.avatarsdk.com/business-integration/) mode.
+2. Specify **GLB** format in export parameters using the [JS API](https://docs.metaperson.avatarsdk.com/js_api#export-parameters).
+3. Create and export the model. 
+4. Once **MetaPerson Creator** exports the model in **GLB** format, it will provide a link to the model. You can copy and store this link and use it to load the model into your application. Note that this link does not expire.
+
+For a demonstration, check out our [web integration sample](https://metaperson.avatarsdk.com/business.html), which exports MetaPerson models in **GLB**. 
+To run this sample, you'll need credentials from your [avatar sdk developer account](https://docs.metaperson.avatarsdk.com/getting_started).
+ 
 ## How To Integrate MetaPerson Creator Into Your Application
 [MetaPerson Creator](https://metaperson.avatarsdk.com/)  web page can be integrated into your application, giving your clients the ability to create their custom avatars and import them into your product.
 
