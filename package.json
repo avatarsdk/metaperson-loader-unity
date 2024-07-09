@@ -59,6 +59,11 @@
       "displayName": "MetaPerson Creator WebGL WebView Integration Sample",
       "description": "The sample demonstrates how to integrate MetaPerson Creator web page into a WebGL application via a WebView component on a unity scene.",
       "path": "Samples~/MetaPersonCreatorWebGLWebViewIntegrationSample/Assets/AvatarSDK/MetaPerson/WebGLWebViewIntegrationSample"
+    },
+    {
+      "displayName": "MetaPerson Eyes Animation Sample",
+      "description": "The sample demonstrates how to animate eyes movements.",
+      "path": "Samples~/MetaPersonLoaderEyesAnimationSample/Assets/AvatarSDK/MetaPerson/EyesAnimationSample"
     }
   ]
 }
