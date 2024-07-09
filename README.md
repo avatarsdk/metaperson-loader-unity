@@ -96,6 +96,35 @@ By default, [MetaPerson Creator](https://metaperson.avatarsdk.com/) exports mode
 
 For a demonstration, check out our [web integration sample](https://metaperson.avatarsdk.com/business.html), which exports MetaPerson models in **GLB**. 
 To run this sample, you'll need credentials from your [avatar sdk developer account](https://docs.metaperson.avatarsdk.com/getting_started).
+
+## How to Animate Eyes Movements
+To animate eye movements (look up, down, left, right), follow these steps:
+
+1. Attach the `EyesAnimator` component to the avatar object.
+
+2. Use the methods of the `EyesAnimator` component to set the eye movement weights. The weight parameter should be a float value in the range [0, 1].
+
+```cs
+EyesAnimator eyesAnimator = ...; // Obtain a reference to the EyesAnimator component
+
+// Set the weights for eye movements
+eyesAnimator.SetLookUpWeight(weight);    // Look up
+eyesAnimator.SetLookDownWeight(weight);  // Look down
+eyesAnimator.SetLookLeftWeight(weight);  // Look left
+eyesAnimator.SetLookRightWeight(weight); // Look right
+```
+
+Here's a quick example to illustrate how you might use these methods in a script:
+
+```cs
+// Assume you have a reference to the EyesAnimator component
+EyesAnimator eyesAnimator = avatar.GetComponent<EyesAnimator>();
+
+// Example: Make the eyes look up with half intensity
+eyesAnimator.SetLookUpWeight(0.5f);
+```
+
+For more details, refer to the [Eyes Animation Sample](./Documentation~/MetaPersonCreatorEyesAnimationSample.md).
  
 ## How To Integrate MetaPerson Creator Into Your Application
 [MetaPerson Creator](https://metaperson.avatarsdk.com/)  web page can be integrated into your application, allowing your clients to create their custom avatars and import them into your product.
