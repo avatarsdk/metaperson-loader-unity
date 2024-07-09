@@ -40,7 +40,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 The `EyesAnimator` component should be added to the avatar object. This component provides methods for setting a weight (a float value in the range [0, 1]) for corresponding eye movements:
 `SetLookUpWeight`, `SetLookDownWeight`, `SetLookLeftWeight` and `SetLookRightWeight`.
 
-Each of these methods set blendshapes values for the **AvatarHead** and **AvatarEyelashes** skinned mesh renderers, and rotate **LeftEye** and **RightEye** transforms to an angle interpolated depending on the weight along the specified axis.
+Each of these methods sets blendshapes values for the **AvatarHead** and **AvatarEyelashes** skinned mesh renderers, and rotates **LeftEye** and **RightEye** transforms to an angle interpolated depending on the weight along the specified axis.
 
 ### Look Up Extreme Position
 
@@ -54,37 +54,37 @@ Each of these methods set blendshapes values for the **AvatarHead** and **Avatar
 
 ### Look Down Extreme Position
 
-1. **AvatarHead** and **AvatarEyelashes** blendshapes:
+1\. **AvatarHead** and **AvatarEyelashes** blendshapes:
   * `eyeLookUpLeft` = 0
   * `eyeLookUpRight` = 0
   * `eyeLookDownLeft` = MAX_BLEND_VALUE
   * `eyeLookDownRight` = MAX_BLEND_VALUE
   
-2. Rotate **LeftEye** and **RightEye** along the local X axis by 23 degrees.
+2\. Rotate **LeftEye** and **RightEye** along the local X axis by 23 degrees.
 
 ### Look Left Extreme Position
 
-1. **AvatarHead** and **AvatarEyelashes** blendshapes:
+1\. **AvatarHead** and **AvatarEyelashes** blendshapes:
   * `eyeLookOutLeft` = MAX_BLEND_VALUE
   * `eyeLookOutRight` = 0
   * `eyeLookInLeft` = 0
   * `eyeLookInRight` = MAX_BLEND_VALUE
   
-2. Rotate **LeftEye** along the local Y axis by -45 degrees.
+2\. Rotate **LeftEye** along the local Y axis by -45 degrees.
 
-2. Rotate **RightEye** along the local Y axis by -25 degrees.
+3\. Rotate **RightEye** along the local Y axis by -25 degrees.
 
 ### Look Right Extreme Position
 
-1. **AvatarHead** and **AvatarEyelashes** blendshapes:
+1\. **AvatarHead** and **AvatarEyelashes** blendshapes:
   * eyeLookOutLeft = 0
   * eyeLookOutRight = MAX_VALUE
   * eyeLookInLeft = MAX_VALUE
   * eyeLookInRight = 0
   
-2. Rotate **LeftEye** along the local Y axis by 25 degress.
+2\. Rotate **LeftEye** along the local Y axis by 25 degress.
 
-2. Rotate **RightEye** along the local Y axis by 45 degress.
+3\. Rotate **RightEye** along the local Y axis by 45 degress.
  
 
 ## Support
