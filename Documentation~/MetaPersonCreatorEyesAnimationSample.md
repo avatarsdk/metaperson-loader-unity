@@ -2,6 +2,8 @@
 
 This sample demonstrates how to animate eye movements (look up, down, left, right)
 
+![Eyes Movements](./Images/eyes_movements.jpg "Eyes Movements")
+
 ## Getting Started
 **1\.** Open the sample scene. 
 
