@@ -97,6 +97,21 @@ By default, [MetaPerson Creator](https://metaperson.avatarsdk.com/) exports mode
 For a demonstration, check out our [web integration sample](https://metaperson.avatarsdk.com/business.html), which exports MetaPerson models in **GLB**. 
 To run this sample, you'll need credentials from your [avatar sdk developer account](https://docs.metaperson.avatarsdk.com/getting_started).
 
+## URP Support
+To integrate MetaPerson avatars into a URP (Universal Render Pipeline) project, follow these steps:
+
+1. Add an additional **MetaPerson Loader URP** package via Package Manager by Git URL:
+
+`https://github.com/avatarsdk/metaperson-loader-unity.git?path=/URP~`
+
+2. Import **MetaPerson Loader URP Sample**.
+
+![Import URP Sample](./Documentation~/Images/import_urp_sample.jpg "Import URP Sample")
+
+3. Run the `Assets/Samples/MetaPerson Loader URP/[ver]/MetaPerson Loader URP Sample/Scenes/MetaPersonLoaderURPSample.unity` scene.
+
+For more details on implementation, refer to the [URP Support documentation](./Documentation~/URPSupport.md).
+
 ## How to Animate Eyes Movements
 To animate eye movements (look up, down, left, right), follow these steps:
 
