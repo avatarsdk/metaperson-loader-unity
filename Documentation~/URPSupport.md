@@ -8,7 +8,7 @@ MetaPerson avatars can be seamlessly integrated into a URP project.
 
 `https://github.com/avatarsdk/metaperson-loader-unity.git`
 
-![Add Package From Git Url](./Documentation~/Images/add_package_from_git_url.jpg "Add Package From Git Url")
+![Add Package From Git Url](./Images/add_package_from_git_url.jpg "Add Package From Git Url")
 
 2. Add the **MetaPerson Loader URP** package via Package Manager by Git URL. This package includes the necessary URP shaders and materials.
 
@@ -16,7 +16,7 @@ MetaPerson avatars can be seamlessly integrated into a URP project.
 
 3. Import **MetaPerson Loader URP Sample**.
 
-![Import URP Sample](./Documentation~/Images/import_urp_sample.jpg "Import URP Sample")
+![Import URP Sample](./Images/import_urp_sample.jpg "Import URP Sample")
 
 3. Run the `Assets/Samples/MetaPerson Loader URP/[ver]/MetaPerson Loader URP Sample/Scenes/MetaPersonLoaderURPSample.unity` scene.
 
@@ -27,7 +27,7 @@ To use MetaPerson avatars in your scene, follow these steps:
 1. **Add the MetaPersonModelURP Prefab:**
    - Add the **MetaPersonModelURP** prefab to your scene.
 
-   ![MetaPersonModelURP Prefab](./Documentation~/Images/metaperson_loader_urp_prefab.JPG "MetaPersonModelURP Prefab")
+![MetaPersonModelURP Prefab](./Images/metaperson_loader_urp_prefab.JPG "MetaPersonModelURP Prefab")
 
 2. **Configure the Meta Person Loader Component:**
    - In the **Meta Person Loader** component, specify the URL of your avatar model in GLB format.
@@ -39,7 +39,7 @@ To use MetaPerson avatars in your scene, follow these steps:
 
 Temaple materials are located in the `Packages/com.avatarsdk.metaperson.loader.urp/Runtime/Materials` directory.
 
-![URP Temaple Materials](./Documentation~/Images/urp_template_materials.JPG "URP Temaple Materials")
+![URP Temaple Materials](./Images/urp_template_materials.JPG "URP Temaple Materials")
 
 Most materials use the `URP\Lit` shader, except for the haircut materials, which use specialized shaders.
 
@@ -51,7 +51,7 @@ Haircuts require three specific materials, each utilizing an unique shader. The 
 * `Avatar SDK/URP/Haircut Front`
 * `Avatar SDK/URP/Haircut`
 
-![Haircut Materials](./Documentation~/Images/urp_haircut_materials.JPG "Haircut Materials")
+![Haircut Materials](./Images/urp_haircut_materials.JPG "Haircut Materials")
 
 ## Support
 If you have any questions or issues with the plugin, please contact us <support@avatarsdk.com>.
