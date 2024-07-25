@@ -85,8 +85,8 @@ namespace AvatarSDK.MetaPerson.Loader
 			Transform[] transforms = gameObject.GetComponentsInChildren<Transform>();
 			Dictionary<string, Transform> transformsDictionary = new Dictionary<string, Transform>();
 			foreach (Transform t in transforms)
-				if(!transformsDictionary.ContainsKey(t.name))
-				transformsDictionary.Add(t.name, t);
+				if (!transformsDictionary.ContainsKey(t.name))
+					transformsDictionary.Add(t.name, t);
 			return transformsDictionary;
 		}
 	}
