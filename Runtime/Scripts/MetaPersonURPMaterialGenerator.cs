@@ -10,6 +10,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace AvatarSDK.MetaPerson.Loader
@@ -29,7 +30,7 @@ namespace AvatarSDK.MetaPerson.Loader
 					foreach(var templateHaircutMaterial in additionalHaircutMaterials)
 					{
 						Material newMaterial = new Material(templateHaircutMaterial);
-						newMaterial.CopyPropertiesFromMaterial(mainMaterial);
+						CopyMaterialTextures(mainMaterial, newMaterial);
 						sharedMaterials.Add(newMaterial);
 					}
 					sharedMaterials.Add(mainMaterial);
@@ -38,6 +39,22 @@ namespace AvatarSDK.MetaPerson.Loader
 			}
 			else
 				base.ConfigureMeshRenderer(meshRenderer, avatarPart);
+		}
+
+		private void CopyMaterialTextures(Material srcMaterial, Material dstMaterial)
+		{
+			var shader = srcMaterial.shader;
+			int propertyCount = ShaderUtil.GetPropertyCount(shader);
+
+			for (int i = 0; i < propertyCount; i++)
+			{
+				if (ShaderUtil.GetPropertyType(shader, i) == ShaderUtil.ShaderPropertyType.TexEnv)
+				{
+					string propertyName = ShaderUtil.GetPropertyName(shader, i);
+					Texture texture = srcMaterial.GetTexture(propertyName);
+					dstMaterial.SetTexture(propertyName, texture);
+				}
+			}
 		}
 	}
 }
