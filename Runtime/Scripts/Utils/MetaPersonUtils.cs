@@ -40,7 +40,7 @@ namespace AvatarSDK.MetaPerson.Loader
 				rootBone = dstMeshRenderes[0].rootBone;
 				rootTransform = dstMeshRenderes[0].transform.parent;
 				foreach (SkinnedMeshRenderer meshRenderer in dstMeshRenderes)
-					Object.Destroy(meshRenderer.gameObject);
+					Object.DestroyImmediate(meshRenderer.gameObject);
 			}
 
 			var dstTransformsMap = GetTransformsDictionary(rootBone.gameObject);
@@ -78,7 +78,7 @@ namespace AvatarSDK.MetaPerson.Loader
 				}
 			}
 
-			Object.Destroy(srcAvatarObject);
+			Object.DestroyImmediate(srcAvatarObject);
 		}
 
 		private static Dictionary<string, Transform> GetTransformsDictionary(GameObject gameObject)
@@ -86,7 +86,8 @@ namespace AvatarSDK.MetaPerson.Loader
 			Transform[] transforms = gameObject.GetComponentsInChildren<Transform>();
 			Dictionary<string, Transform> transformsDictionary = new Dictionary<string, Transform>();
 			foreach (Transform t in transforms)
-				transformsDictionary.Add(t.name, t);
+				if (!transformsDictionary.ContainsKey(t.name))
+					transformsDictionary.Add(t.name, t);
 			return transformsDictionary;
 		}
 	}
