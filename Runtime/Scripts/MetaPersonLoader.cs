@@ -98,6 +98,9 @@ namespace AvatarSDK.MetaPerson.Loader
 
 				if (success)
 				{
+					if (materialGenerator != null)
+						materialGenerator.ConfigureMeshRenderers(avatarObject);
+
 					if (configureAnimator)
 					{
 						HumanoidAnimatorBuilder humanoidAnimatorBuilder = new HumanoidAnimatorBuilder();

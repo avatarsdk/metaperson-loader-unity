@@ -1,6 +1,6 @@
 {
   "name": "com.avatarsdk.metaperson.loader",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "displayName": "MetaPerson Loader",
   "description": "This package provides scripts and shaders to load MetaPerson avatars.",
   "unity": "2021.3",
@@ -9,7 +9,7 @@
   "changelogUrl": "https://github.com/avatarsdk/metaperson-loader-unity/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/avatarsdk/metaperson-loader-unity/blob/main/LICENSE.md",
   "dependencies": {
-    "com.unity.cloud.gltfast": "6.0.1"
+    "com.unity.cloud.gltfast": "6.7.0"
  },
  "keywords": [
     "avatar",

@@ -1,0 +1,36 @@
+{
+  "name": "com.avatarsdk.metaperson.loader.urp",
+  "version": "1.0.0",
+  "displayName": "MetaPerson Loader URP",
+  "description": "This package provides shaders and materials to render MetaPerson avatars in URP.",
+  "unity": "2021.3",
+  "unityRelease": "19f1",
+  "documentationUrl": "https://github.com/avatarsdk/metaperson-loader-unity/blob/main/README.md",
+  "changelogUrl": "https://github.com/avatarsdk/metaperson-loader-unity/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/avatarsdk/metaperson-loader-unity/blob/main/LICENSE.md",
+ "keywords": [
+    "avatar",
+    "avatar sdk",
+    "metaperson",
+    "metaverse",
+    "3d avatar",
+    "realistic avatar",
+    "glb",
+    "gltf",
+    "avatar loader",
+    "model",
+    "meta"
+  ],
+  "author": {
+    "name": "itSeez3D Inc",
+    "email": "support@avatarsdk.com",
+    "url": "https://avatarsdk.com/"
+  },
+  "samples": [
+    {
+      "displayName": "MetaPerson Loader URP Sample",
+      "description": "The sample demonstrates how to load MetaPerson avatar in URP.",
+      "path": "Samples~/MetaPersonLoaderURPSample/Assets/AvatarSDK/MetaPersonLoader/URPSample"
+    }
+  ]
+}
