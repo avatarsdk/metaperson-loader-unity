@@ -10,7 +10,6 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace AvatarSDK.MetaPerson.Loader
@@ -43,17 +42,13 @@ namespace AvatarSDK.MetaPerson.Loader
 
 		private void CopyMaterialTextures(Material srcMaterial, Material dstMaterial)
 		{
-			var shader = srcMaterial.shader;
-			int propertyCount = ShaderUtil.GetPropertyCount(shader);
+			List<string> texturesNames = new List<string>() { "_BaseMap", "_MetallicGlossMap", "_BumpMap", "_OcclusionMap" };
 
-			for (int i = 0; i < propertyCount; i++)
+			var shader = srcMaterial.shader;
+			foreach (var textureName in texturesNames)
 			{
-				if (ShaderUtil.GetPropertyType(shader, i) == ShaderUtil.ShaderPropertyType.TexEnv)
-				{
-					string propertyName = ShaderUtil.GetPropertyName(shader, i);
-					Texture texture = srcMaterial.GetTexture(propertyName);
-					dstMaterial.SetTexture(propertyName, texture);
-				}
+				Texture texture = srcMaterial.GetTexture(textureName);
+				dstMaterial.SetTexture(textureName, texture);
 			}
 		}
 	}
