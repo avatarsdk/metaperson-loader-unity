@@ -1178,10 +1178,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5568330823641380, guid: 7c8f9054c4a36514a8e5e7657dbdd3eb, type: 3}
-      propertyPath: corneaTransparentMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 53db4eb272a951744b21b59dfb12dd65, type: 2}
     - target: {fileID: 5568330823641383, guid: 7c8f9054c4a36514a8e5e7657dbdd3eb, type: 3}
       propertyPath: m_Name
       value: MetaPersonModel
