@@ -69,11 +69,13 @@ MonoBehaviour:
   headMaterial: {fileID: 0}
   eyelashesMaterial: {fileID: 2100000, guid: 20b6cca8408699444a54f07b29ebefb1, type: 2}
   corneaMaterial: {fileID: 0}
+  corneaTransparentMaterial: {fileID: 2100000, guid: 03f5a38fd90d35d41aad96a5b371f9d6, type: 2}
   eyeballMaterial: {fileID: 0}
   teethMaterial: {fileID: 0}
   outfitMaterial: {fileID: 0}
   haircutMaterial: {fileID: 2100000, guid: 85cf65463728f5543a4ca545d10198c9, type: 2}
   glassesMaterial: {fileID: 2100000, guid: b218b9dc663f30a4e9192e61955ca8e7, type: 2}
+  jewelryMaterial: {fileID: 2100000, guid: 001eca3b751570146a92bf997cb580b9, type: 2}
   additionalHaircutMaterials:
   - {fileID: 2100000, guid: c5ec65607633ab04c82d91ff09ddb06b, type: 2}
   - {fileID: 2100000, guid: 31e093b543c3bc74b85df242b2ea89ff, type: 2}
