@@ -56,7 +56,9 @@ To load a MetaPerson model, follow these steps:
 3. Specify the **Avatar Object** field, which is the parent object of the instantiated avatar.
 4. It's recommended to create a [MetaPersonMaterialGenerator](./Runtime/Scripts/MetaPersonMaterialGenerator.cs) component and assign it to the **Material Generator** field of the [MetaPersonLoader](./Runtime/Scripts/MetaPersonLoader.cs).
 This component provides preconfigured materials and sets up avatar textures. When **Material Generator** isn't specified, default materials are used.
+
 ![MetaPerson Loader](./Documentation~/Images/meta_person_loader.JPG "MetaPerson Loader").
+
 5. Call the **LoadModelAsync** method of the [MetaPersonLoader](./Runtime/Scripts/MetaPersonLoader.cs) by passing a URL to a model.
 ```c#
 bool isModelLoaded = await metaPersonLoader.LoadModelAsync(modelUrl, p => Debug.LogFormat("Downloading avatar: {0}%", (int)(p * 100)));
