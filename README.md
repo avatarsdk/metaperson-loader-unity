@@ -78,7 +78,8 @@ This component includes the following materials:
  * **Body Material**: This material is used to render the avatar's body.
  * **Head Material**: This material is used to render the avatar's head.
  * **Eyelashes Material**: This material is used to render eyelashes.
- * **Cornea Material**: This material is used to render cornea.
+ * **Cornea Material**: This material is used to render cornea when there is an opaque color texture.
+ * **Cornea Transparent Material**: This material is used to render transparent cornea without a texture.
  * **Eyeball Material**: This material is used to render eyeballs.
  * **Outfit Material**: This material is used to render outfits.
  * **Haircut Material**: This material is used to render haircuts.
