@@ -31,6 +31,8 @@ namespace AvatarSDK.MetaPerson.Loader
 
 		public UnityEngine.Material corneaMaterial;
 
+		public UnityEngine.Material corneaTransparentMaterial;
+
 		public UnityEngine.Material eyeballMaterial;
 
 		public UnityEngine.Material teethMaterial;
@@ -40,6 +42,8 @@ namespace AvatarSDK.MetaPerson.Loader
 		public UnityEngine.Material haircutMaterial;
 
 		public UnityEngine.Material glassesMaterial;
+
+		public UnityEngine.Material jewelryMaterial;
 
 		private List<Texture2D> texturesToDestroy = new List<Texture2D>();
 
@@ -54,8 +58,8 @@ namespace AvatarSDK.MetaPerson.Loader
 				return GenerateHeadMaterial(headMaterial, gltfMaterial, gltf);
 			else if (gltfMaterial.name == AvatarStructureUtils.GetAvatarPartName(AvatarPart.Eyelashes) && eyelashesMaterial != null)
 				return GenerateEyelashesMaterial(eyelashesMaterial, gltfMaterial, gltf, false);
-			else if (AvatarStructureUtils.IsCornea(gltfMaterial.name) && corneaMaterial != null)
-				return GenerateCorneaMaterial(corneaMaterial, gltfMaterial, gltf);
+			else if (AvatarStructureUtils.IsCornea(gltfMaterial.name))
+				return GenerateCorneaMaterial(corneaMaterial, corneaTransparentMaterial, gltfMaterial, gltf);
 			else if (AvatarStructureUtils.IsEyeball(gltfMaterial.name) && eyeballMaterial != null)
 				return GenerateEyeballMaterial(eyeballMaterial, gltfMaterial, gltf);
 			else if (AvatarStructureUtils.IsTeeth(gltfMaterial.name) && teethMaterial != null)
@@ -66,6 +70,8 @@ namespace AvatarSDK.MetaPerson.Loader
 				return GenerateGlassesMaterial(glassesMaterial, gltfMaterial, gltf);
 			else if (AvatarStructureUtils.IsOutfit(gltfMaterial.name) && outfitMaterial != null)
 				return GenerateOutfitMaterial(outfitMaterial, gltfMaterial, gltf);
+			else if (jewelryMaterial != null && AvatarStructureUtils.IsJewelry(gltfMaterial.name))
+				return GenerateJewelryMaterial(jewelryMaterial, gltfMaterial, gltf);
 
 			return GenerateMaterial(defaultMaterial, gltfMaterial, gltf);
 		}
@@ -113,9 +119,14 @@ namespace AvatarSDK.MetaPerson.Loader
 			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
 		}
 
-		protected virtual UnityEngine.Material GenerateCorneaMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		protected virtual UnityEngine.Material GenerateCorneaMaterial(UnityEngine.Material templateMaterial, UnityEngine.Material templateTransparentMaterial, 
+			MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
 		{
-			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+			if (gltfMaterial.PbrMetallicRoughness.BaseColorTexture.index < 0 && templateTransparentMaterial != null)
+				return Instantiate(templateTransparentMaterial);
+			else if (templateMaterial != null)
+				return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+			return GenerateMaterial(defaultMaterial, gltfMaterial, gltf, useMetallicRoughness);
 		}
 
 		protected virtual UnityEngine.Material GenerateEyeballMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
@@ -141,6 +152,13 @@ namespace AvatarSDK.MetaPerson.Loader
 		protected virtual UnityEngine.Material GenerateOutfitMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
 		{
 			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GenerateJewelryMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			var material = GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+			material.SetTexture("_EmissionMap", material.mainTexture);
+			return material;
 		}
 
 		protected virtual void ConfigureMeshRenderer(SkinnedMeshRenderer meshRenderer, AvatarPart avatarPart)

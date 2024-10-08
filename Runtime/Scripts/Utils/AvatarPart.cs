@@ -31,6 +31,8 @@ namespace AvatarSDK.MetaPerson.Loader
 		OutfitTop,
 		OutfitBottom,
 		OutfitShoes,
+		Earrings,
+		Necklace,
 		Unknown
 	}
 }
