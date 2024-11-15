@@ -163,5 +163,9 @@ Other samples:
  * [Integration with body tracking from the Movement SDK for Meta Quest](https://github.com/avatarsdk/metaperson-quest-movement-sdk-sample)
  * [Unity Multiplayer Photon Sample](https://github.com/avatarsdk/metaperson-unity-photon-sample)
 
+## How To Load Avatars From Point Clouds
+The **Standalone Application** enables the generation of point clouds for avatars, reducing data size and memory usage.
+The [PointCloudLoading](./Documentation~/MetaPersonPointCloudLoadingSample.md) sample demonstrates how to achieve this efficiently.
+
 ## Support
 If you have any questions or issues with the plugin, don't hesitate to contact us at <support@avatarsdk.com>.
