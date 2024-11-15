@@ -19,7 +19,7 @@ You can get this sample via Unity Package Manager or clone the repository and ru
 
 `https://github.com/avatarsdk/metaperson-loader-unity.git`
 
- * Import **MetaPerson Creator Desktop Integration Sample** as well.
+ * Import **MetaPerson Eyes Animation Sample** as well.
 
 ![Import Sample](./Images/import_eyes_animation_sample.jpg "Import Sample")
 
