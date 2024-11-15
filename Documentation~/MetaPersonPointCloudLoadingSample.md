@@ -172,7 +172,7 @@ Important Parameters:
 * `"split_vertices": true`
 * `"pointclouds": true`
 
-The output directory contains several files, but only the following are required for Unity:
+The output directory contains several files, but only highlighted in bold are required for Unity:
 * AvatarBody.ply
 * AvatarBodyMale_Color_1K.png
 * **AvatarEyelashes.ply**
@@ -204,49 +204,49 @@ metaPersonInstantiator.AddOutfit(avatarModel, outfitPrefab);
 
 ```json
 {
-	"format":"glb",
-	"lod":"LOD1",
-	"finalize": false,
+  "format":"glb",
+  "lod":"LOD1",
+  "finalize": false,
   "export_template_models":true,
   "avatar":
-	{ 
-		"list":
-		[
-			"AvatarBody",
-			"AvatarHead",
-			"AvatarEyelashes",
-			"AvatarLeftCornea",
-			"AvatarRightCornea",
-			"AvatarLeftEyeball",
-			"AvatarRightEyeball",
-			"AvatarTeethLower",
-			"AvatarTeethUpper"
-		]
-	},
-	"outfits":
-	{
-		"list":
-		[
-			"SEVAN"
-		],
-		"embed":false,
-		"textures":
-		{
-			"list":
-			[
-				"Color",
-				"Normal",
-				"UnityMetallicSmoothness",
+  { 
+    "list":
+    [
+      "AvatarBody",
+      "AvatarHead",
+      "AvatarEyelashes",
+      "AvatarLeftCornea",
+      "AvatarRightCornea",
+      "AvatarLeftEyeball",
+      "AvatarRightEyeball",
+      "AvatarTeethLower",
+      "AvatarTeethUpper"
+    ]
+  },
+  "outfits":
+  {
+    "list":
+    [
+      "SEVAN"
+    ],
+    "embed":false,
+    "textures":
+    {
+      "list":
+      [
+        "Color",
+        "Normal",
+        "UnityMetallicSmoothness",
         "BodyVisibilityMask",
         "HeadVisibilityMask"
-			]
-		}
-	},
-	"textures":
-	{
-		"profile":"1K.jpg",
-		"embed" : false
-	}
+      ]
+    }
+  },
+  "textures":
+  {
+    "profile":"1K.jpg",
+    "embed" : false
+  }
 }
 ```
 
