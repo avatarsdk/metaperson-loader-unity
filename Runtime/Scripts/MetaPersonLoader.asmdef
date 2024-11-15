@@ -1,11 +1,12 @@
 {
     "name": "AvatarSDK.MetaPerson.Loader",
+    "rootNamespace": "",
     "references": [
         "glTFast"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": false,
+    "allowUnsafeCode": true,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,

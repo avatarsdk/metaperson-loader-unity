@@ -1,0 +1,43 @@
+{
+   "age" : "not_child",
+   "age_confidence" : 1,
+   "eye_iris_color" : {
+      "blue" : 42,
+      "green" : 43,
+      "red" : 50
+   },
+   "eyebrows_color" : {
+      "blue" : 50,
+      "green" : 57,
+      "red" : 77
+   },
+   "gender" : "male",
+   "gender_confidence" : 1,
+   "hair_color" : {
+      "blue" : 49,
+      "green" : 50,
+      "red" : 56
+   },
+   "lips_color" : {
+      "blue" : 100,
+      "green" : 111,
+      "red" : 158
+   },
+   "pipeline" : "metaperson_2.0",
+   "pipeline_subtype" : "male",
+   "race" : "black",
+   "race_confidence" : 0.9999914169311523,
+   "races" : {
+      "asian" : 9.750747764769585e-09,
+      "black" : 0.9999914169311523,
+      "white" : 8.601391527918167e-06
+   },
+   "remove_glasses" : false,
+   "remove_smile" : false,
+   "remove_stubble" : false,
+   "skin_color" : {
+      "blue" : 95,
+      "green" : 116,
+      "red" : 165
+   }
+}

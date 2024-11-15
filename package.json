@@ -61,9 +61,14 @@
       "path": "Samples~/MetaPersonCreatorWebGLWebViewIntegrationSample/Assets/AvatarSDK/MetaPerson/WebGLWebViewIntegrationSample"
     },
     {
-      "displayName": "MetaPerson Eyes Animation Sample",
+      "displayName": "Eyes Animation Sample",
       "description": "The sample demonstrates how to animate eyes movements.",
       "path": "Samples~/MetaPersonLoaderEyesAnimationSample/Assets/AvatarSDK/MetaPerson/EyesAnimationSample"
+    },
+    {
+      "displayName": "Point Cloud Loading Sample",
+      "description": "The sample demonstrates how to load MetaPerson avatars from point cloud.",
+      "path": "Samples~/MetaPersonLoaderPointCloudSample/Assets/AvatarSDK/MetaPerson/PointCloudLoadingSample"
     }
   ]
 }

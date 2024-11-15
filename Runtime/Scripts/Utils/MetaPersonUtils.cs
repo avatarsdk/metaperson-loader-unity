@@ -81,6 +81,38 @@ namespace AvatarSDK.MetaPerson.Loader
 			Object.DestroyImmediate(srcAvatarObject);
 		}
 
+		public static void MergeModels(GameObject srcAvatarObject, GameObject dstAvatarObject)
+		{
+			Transform rootBone = dstAvatarObject.transform;
+			Transform rootTransform = dstAvatarObject.transform;
+			SkinnedMeshRenderer[] dstMeshRenderers = dstAvatarObject.GetComponentsInChildren<SkinnedMeshRenderer>();
+			if (dstMeshRenderers != null && dstMeshRenderers.Length > 0)
+			{
+				rootBone = dstMeshRenderers[0].rootBone;
+				rootTransform = dstMeshRenderers[0].transform.parent;
+			}
+
+			var dstTransformsMap = GetTransformsDictionary(rootBone.gameObject);
+			SkinnedMeshRenderer[] srcMeshRenderers = srcAvatarObject.GetComponentsInChildren<SkinnedMeshRenderer>();
+			if (srcMeshRenderers != null)
+			{
+				foreach (SkinnedMeshRenderer meshRenderer in srcMeshRenderers)
+				{
+					Transform[] currentBones = meshRenderer.bones;
+					Transform[] newBones = new Transform[currentBones.Length];
+					for (int i = 0; i < currentBones.Length; i++)
+					{
+						dstTransformsMap.TryGetValue(currentBones[i].name, out newBones[i]);
+					}
+					meshRenderer.bones = newBones;
+					meshRenderer.rootBone = rootBone;
+					meshRenderer.transform.SetParent(rootTransform, false);
+				}
+			}
+
+			Object.DestroyImmediate(srcAvatarObject);
+		}
+
 		private static Dictionary<string, Transform> GetTransformsDictionary(GameObject gameObject)
 		{
 			Transform[] transforms = gameObject.GetComponentsInChildren<Transform>();

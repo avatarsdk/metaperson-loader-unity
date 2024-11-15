@@ -1,0 +1,43 @@
+{
+   "age" : "not_child",
+   "age_confidence" : 1,
+   "eye_iris_color" : {
+      "blue" : 90,
+      "green" : 91,
+      "red" : 106
+   },
+   "eyebrows_color" : {
+      "blue" : 64,
+      "green" : 77,
+      "red" : 114
+   },
+   "gender" : "female",
+   "gender_confidence" : 0.9999610185623169,
+   "hair_color" : {
+      "blue" : 71,
+      "green" : 102,
+      "red" : 143
+   },
+   "lips_color" : {
+      "blue" : 115,
+      "green" : 127,
+      "red" : 187
+   },
+   "pipeline" : "metaperson_2.0",
+   "pipeline_subtype" : "female",
+   "race" : "white",
+   "race_confidence" : 0.9999998807907104,
+   "races" : {
+      "asian" : 4.248713825205641e-09,
+      "black" : 1.222622927343764e-07,
+      "white" : 0.9999998807907104
+   },
+   "remove_glasses" : false,
+   "remove_smile" : false,
+   "remove_stubble" : false,
+   "skin_color" : {
+      "blue" : 146,
+      "green" : 166,
+      "red" : 210
+   }
+}

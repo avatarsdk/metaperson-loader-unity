@@ -115,3 +115,14 @@
 /URP~/Samples~/MetaPersonLoaderURPSample/AvatarSDK.MetaPerson.Loader.csproj
 /URP~/Samples~/MetaPersonLoaderURPSample/Assembly-CSharp.csproj
 /URP~/Samples~/MetaPersonLoaderURPSample/.vsconfig
+/Samples~/MetaPersonLoaderPointCloudSample/.vs/MetaPersonLoaderPointcloudSample
+/Samples~/MetaPersonLoaderPointCloudSample/Library
+/Samples~/MetaPersonLoaderPointCloudSample/Logs
+/Samples~/MetaPersonLoaderPointCloudSample/obj/Debug
+/Samples~/MetaPersonLoaderPointCloudSample/Temp
+/Samples~/MetaPersonLoaderPointCloudSample/UserSettings
+/Samples~/MetaPersonLoaderPointCloudSample/.vsconfig
+/Samples~/MetaPersonLoaderPointCloudSample/Assembly-CSharp.csproj
+/Samples~/MetaPersonLoaderPointCloudSample/AvatarSDK.MetaPerson.Loader.csproj
+/Samples~/MetaPersonLoaderPointCloudSample/AvatarSDK.MetaPerson.Loader.Editor.csproj
+/Samples~/MetaPersonLoaderPointCloudSample/MetaPersonLoaderPointcloudSample.sln
