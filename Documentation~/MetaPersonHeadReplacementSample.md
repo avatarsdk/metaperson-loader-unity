@@ -65,6 +65,7 @@ The `LoadModelWithHeadReplacement` method performs the following steps:
 You can export head-only models in two ways:
 
 1. Directly from the [MetaPerson Creator](https://metaperson.avatarsdk.com/).
+
 ![Head Only Export](./Images/head_only_export_parameters.jpg "Head Only Export")
 
 2. Run **MetaPerson Creator** in [business integration](https://docs.metaperson.avatarsdk.com/business-integration/) mode and specify required export parameters via the [JS API](https://docs.metaperson.avatarsdk.com/js_api#export-parameters).
