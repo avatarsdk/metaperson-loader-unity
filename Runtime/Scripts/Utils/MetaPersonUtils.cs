@@ -113,6 +113,15 @@ namespace AvatarSDK.MetaPerson.Loader
 			Object.DestroyImmediate(srcAvatarObject);
 		}
 
+		public static Transform GetBoneByName(GameObject metaPersonObj, string boneName)
+		{
+			foreach (var bone in metaPersonObj.GetComponentsInChildren<Transform>(true))
+				if (bone.name == boneName)
+					return bone;
+
+			return null;
+		}
+
 		private static Dictionary<string, Transform> GetTransformsDictionary(GameObject gameObject)
 		{
 			Transform[] transforms = gameObject.GetComponentsInChildren<Transform>();

@@ -82,7 +82,7 @@ namespace AvatarSDK.MetaPerson.Loader
 				if (materialGenerator != null)
 					materialGenerator.DestroyUnusedTextures();
 
-				foreach (Mesh mesh in gltfImporter.GetMeshes())
+				foreach (Mesh mesh in gltfImporter.Meshes)
 					mesh.Optimize();
 
 				if (success)

@@ -1,0 +1,34 @@
+{
+   "beard_color" : null,
+   "eye_iris_color" : {
+      "blue" : 90,
+      "green" : 91,
+      "red" : 106
+   },
+   "eyebrows_color" : {
+      "blue" : 64,
+      "green" : 77,
+      "red" : 114
+   },
+   "hair_color" : {
+      "blue" : 71,
+      "green" : 102,
+      "red" : 143
+   },
+   "haircut_name" : "Haircut15",
+   "lips_color" : {
+      "blue" : 115,
+      "green" : 127,
+      "red" : 187
+   },
+   "long_hair" : false,
+   "pipeline" : "metaperson_2.1",
+   "pipeline_subtype" : "female",
+   "remove_glasses" : false,
+   "remove_smile" : false,
+   "skin_color" : {
+      "blue" : 146,
+      "green" : 166,
+      "red" : 210
+   }
+}

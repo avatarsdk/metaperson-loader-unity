@@ -1,0 +1,34 @@
+{
+   "beard_color" : null,
+   "eye_iris_color" : {
+      "blue" : 42,
+      "green" : 43,
+      "red" : 50
+   },
+   "eyebrows_color" : {
+      "blue" : 50,
+      "green" : 57,
+      "red" : 77
+   },
+   "hair_color" : {
+      "blue" : 49,
+      "green" : 50,
+      "red" : 56
+   },
+   "haircut_name" : "Haircut14_mirrored",
+   "lips_color" : {
+      "blue" : 100,
+      "green" : 111,
+      "red" : 158
+   },
+   "long_hair" : false,
+   "pipeline" : "metaperson_2.1",
+   "pipeline_subtype" : "male",
+   "remove_glasses" : false,
+   "remove_smile" : false,
+   "skin_color" : {
+      "blue" : 95,
+      "green" : 116,
+      "red" : 165
+   }
+}

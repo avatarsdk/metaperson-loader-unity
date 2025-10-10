@@ -8,6 +8,7 @@
 * Written by Itseez3D, Inc. <support@avatarsdk.com>, November 2024
 */
 
+using GLTFast;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -50,6 +51,33 @@ namespace AvatarSDK.MetaPerson.Loader
 
 			dstAvatarModel.SetActive(makeActive);
 			return dstAvatarModel;
+		}
+
+		public async Task<GameObject> LoadModelWithHeadReplacement(GameObject templateMetaPersonPrefab, string srcModelGlbPath, string modelJsonPath, bool makeActive = true)
+		{
+			if (!File.Exists(srcModelGlbPath))
+			{
+				Debug.LogErrorFormat("Model GLB not found: {0}", srcModelGlbPath);
+				return null;
+			}
+
+			GameObject metaPersonModel = InstantiateModel(templateMetaPersonPrefab, false);
+			GameObject srcHeadModel = await LoadModel("MetaPerson_src", srcModelGlbPath);
+
+			if (srcHeadModel == null)
+			{
+				Debug.LogError("Unable to load Head model");
+
+				UnityEngine.Object.Destroy(metaPersonModel);
+				return null;
+			}
+
+			ReplaceMeshesVertices(srcHeadModel, metaPersonModel);
+			RecolorBodyTexture(modelJsonPath, metaPersonModel);
+
+			UnityEngine.Object.Destroy(srcHeadModel);
+			metaPersonModel.SetActive(makeActive);
+			return metaPersonModel;
 		}
 
 		public void AddOutfit(GameObject avatarModel, GameObject outfitPrefab, bool makeActive = true)
@@ -173,6 +201,106 @@ namespace AvatarSDK.MetaPerson.Loader
 					loadedSinceLastPause = 0;
 				}
 			}
+		}
+
+		private async Task<GameObject> LoadModel(string modelName, string modelPath)
+		{
+			ImportSettings importSettings = new ImportSettings();
+			importSettings.GenerateMipMaps = true;
+			importSettings.AnisotropicFilterLevel = 1;
+			importSettings.DefaultMagFilterMode = GLTFast.Schema.Sampler.MagFilterMode.Linear;
+			importSettings.DefaultMinFilterMode = GLTFast.Schema.Sampler.MinFilterMode.Linear;
+
+			var gltfImporter = new GltfImport();
+			var success = await gltfImporter.Load(File.ReadAllBytes(modelPath), uri: new Uri(modelPath), importSettings: importSettings);
+
+
+			if (success)
+			{
+				GameObject model = new GameObject(modelName);
+				success = await gltfImporter.InstantiateMainSceneAsync(model.transform);
+				return model;
+			}
+			else
+			{
+				Debug.LogError("Loading glTF failed!");
+				return null;
+			}
+		}
+
+		private void ReplaceMeshesVertices(GameObject srcModel, GameObject targetModel)
+		{
+			Transform targetModelHeadBone = MetaPersonUtils.GetBoneByName(targetModel, "Head");
+			Transform srcModelHeadBone = MetaPersonUtils.GetBoneByName(srcModel, "Head");
+
+			Vector3 headPositionDelta = (targetModelHeadBone.position - targetModel.transform.position) - (srcModelHeadBone.position - srcModel.transform.position);
+
+			var templateMeshRenderersMap = FindAllMeshRenderers(targetModel);
+			var srcMeshRenderersMap = FindAllMeshRenderers(srcModel);
+			foreach (var srcRenderersPair in srcMeshRenderersMap)
+			{
+				AvatarPart avatarPart = srcRenderersPair.Key;
+				if (templateMeshRenderersMap.ContainsKey(avatarPart))
+				{
+					var srcMeshRenderer = srcRenderersPair.Value;
+					var dstMeshRenderer = templateMeshRenderersMap[avatarPart];
+
+					Mesh srcMesh = srcMeshRenderer.sharedMesh;
+					Mesh dstMesh = UnityEngine.Object.Instantiate(dstMeshRenderer.sharedMesh);
+
+					if (srcMesh.vertexCount != dstMesh.vertexCount)
+					{
+						Debug.LogErrorFormat("Unexpected number of vertices for {0}: {1} vs {2}", avatarPart, dstMesh.vertexCount, srcMesh.vertexCount);
+						continue;
+					}
+
+					Vector3[] srcVertices = srcMesh.vertices;
+					for (int i = 0; i < srcVertices.Length; ++i)
+					{
+						srcVertices[i] += headPositionDelta;
+					}
+
+					dstMesh.vertices = srcVertices;
+					dstMesh.normals = srcMesh.normals;
+
+					Vector3[] blendDeltas = new Vector3[srcMesh.vertexCount];
+					for (int blendIdx = 0; blendIdx < srcMesh.blendShapeCount; blendIdx++)
+					{
+						string blendName = srcMesh.GetBlendShapeName(blendIdx);
+						srcMesh.GetBlendShapeFrameVertices(blendIdx, 0, blendDeltas, null, null);
+						dstMesh.AddBlendShapeFrame(blendName, 100.0f, blendDeltas, null, null);
+					}
+
+					dstMeshRenderer.sharedMesh = dstMesh;
+					dstMeshRenderer.material.mainTexture = srcMeshRenderer.material.mainTexture;
+				}
+				else
+				{
+					Debug.LogWarningFormat("No matching avatar part in template model for {0}", avatarPart);
+				}
+			}
+		}
+
+		private void RecolorBodyTexture(string modelJsonPath, GameObject metaPersonModel)
+		{
+			if (!string.IsNullOrEmpty(modelJsonPath))
+			{
+				if (File.Exists(modelJsonPath))
+				{
+					ModelInfo modelInfo = JsonUtility.FromJson<ModelInfo>(File.ReadAllText(modelJsonPath));
+					if (modelInfo == null || modelInfo.skin_color.IsNullOrNotSpecified())
+						Debug.LogError("Unable to recolor body texture. There is no skin color info");
+					else
+					{
+						var templateMeshRenderersMap = FindAllMeshRenderers(metaPersonModel);
+						BodyTextureRecolorer.RecolorBodyTexture(templateMeshRenderersMap[AvatarPart.Body], modelInfo.skin_color);
+					}
+				}
+				else
+					Debug.LogErrorFormat("Model info file not found: {0}", modelJsonPath);
+			}
+			else
+				Debug.LogErrorFormat("Model info file path isn't specified!");
 		}
 	}
 }

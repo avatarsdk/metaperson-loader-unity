@@ -1,6 +1,6 @@
 {
   "name": "com.avatarsdk.metaperson.loader",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "displayName": "MetaPerson Loader",
   "description": "This package provides scripts and shaders to load MetaPerson avatars.",
   "unity": "2021.3",
@@ -9,7 +9,7 @@
   "changelogUrl": "https://github.com/avatarsdk/metaperson-loader-unity/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/avatarsdk/metaperson-loader-unity/blob/main/LICENSE.md",
   "dependencies": {
-    "com.unity.cloud.gltfast": "6.7.0"
+    "com.unity.cloud.gltfast": "6.12.1"
  },
  "keywords": [
     "avatar",
@@ -34,6 +34,16 @@
       "displayName": "MetaPerson Loader Sample",
       "description": "The sample demonstrates how to load MetaPerson avatar.",
       "path": "Samples~/MetaPersonLoaderSample/Assets/AvatarSDK/MetaPersonLoader/Sample"
+    },
+    {
+      "displayName": "Head Replacement Sample",
+      "description": "The purpose of this sample is to show a method for optimizing the size of a downloaded model. It loads a model without its body, replaces the head parts of a template model in the scene, and recolors the body texture.",
+      "path": "Samples~/MetaPersonLoaderHeadReplacementSample/Assets/AvatarSDK/MetaPerson/HeadReplacementSample"
+    },
+    {
+      "displayName": "Point Cloud Loading Sample",
+      "description": "The sample demonstrates how to load MetaPerson avatars from point cloud.",
+      "path": "Samples~/MetaPersonLoaderPointCloudSample/Assets/AvatarSDK/MetaPerson/PointCloudLoadingSample"
     },
     {
       "displayName": "MetaPerson Creator Desktop Integration Sample",
@@ -64,11 +74,6 @@
       "displayName": "Eyes Animation Sample",
       "description": "The sample demonstrates how to animate eyes movements.",
       "path": "Samples~/MetaPersonLoaderEyesAnimationSample/Assets/AvatarSDK/MetaPerson/EyesAnimationSample"
-    },
-    {
-      "displayName": "Point Cloud Loading Sample",
-      "description": "The sample demonstrates how to load MetaPerson avatars from point cloud.",
-      "path": "Samples~/MetaPersonLoaderPointCloudSample/Assets/AvatarSDK/MetaPerson/PointCloudLoadingSample"
     }
   ]
 }
