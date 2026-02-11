@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5568330823641383}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5568330823641381
 MonoBehaviour:
@@ -69,13 +69,16 @@ MonoBehaviour:
   headMaterial: {fileID: 0}
   eyelashesMaterial: {fileID: 2100000, guid: f8c84e808d8a4c043b0fd6c525b4fab4, type: 2}
   corneaMaterial: {fileID: 0}
-  corneaTransparentMaterial: {fileID: 2100000, guid: 53db4eb272a951744b21b59dfb12dd65, type: 2}
+  corneaTransparentMaterial: {fileID: 2100000, guid: 53db4eb272a951744b21b59dfb12dd65,
+    type: 2}
   eyeballMaterial: {fileID: 0}
   teethMaterial: {fileID: 0}
   outfitMaterial: {fileID: 0}
   haircutMaterial: {fileID: 2100000, guid: c4ae1a362bdf43b4fbbf6782c3d0360a, type: 2}
   glassesMaterial: {fileID: 2100000, guid: 30efb9bfd338729438be13cf41146940, type: 2}
   jewelryMaterial: {fileID: 2100000, guid: a974caa57d033424b8ac75d9ebdc0b41, type: 2}
+  beardsMaterial: {fileID: 2100000, guid: 24b22b8ccc6589f41a0a5825d625b63b, type: 2}
+  propsMaterial: {fileID: 2100000, guid: 3b179b49b0568074a8adcf0401da73d5, type: 2}
 --- !u!114 &5568330823641379
 MonoBehaviour:
   m_ObjectHideFlags: 0

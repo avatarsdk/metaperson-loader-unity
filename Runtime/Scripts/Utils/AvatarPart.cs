@@ -34,6 +34,8 @@ namespace AvatarSDK.MetaPerson.Loader
 		Hat,
 		Earrings,
 		Necklace,
+		Beard,
+		Props,
 		Unknown
 	}
 }

@@ -45,6 +45,10 @@ namespace AvatarSDK.MetaPerson.Loader
 
 		public UnityEngine.Material jewelryMaterial;
 
+		public UnityEngine.Material beardsMaterial;
+
+		public UnityEngine.Material propsMaterial;
+
 		private List<Texture2D> texturesToDestroy = new List<Texture2D>();
 
 		private static bool? isDXT5Encoding = null;
@@ -72,6 +76,10 @@ namespace AvatarSDK.MetaPerson.Loader
 				return GenerateOutfitMaterial(outfitMaterial, gltfMaterial, gltf);
 			else if (jewelryMaterial != null && AvatarStructureUtils.IsJewelry(gltfMaterial.name))
 				return GenerateJewelryMaterial(jewelryMaterial, gltfMaterial, gltf);
+			else if (beardsMaterial != null && AvatarStructureUtils.IsBeard(gltfMaterial.name))
+				return GenerateBeardMaterial(beardsMaterial, gltfMaterial, gltf);
+			else if (propsMaterial != null && AvatarStructureUtils.IsProps(gltfMaterial.name))
+				return GeneratePropsMaterial(propsMaterial, gltfMaterial, gltf);
 
 			return GenerateMaterial(defaultMaterial, gltfMaterial, gltf);
 		}
@@ -159,6 +167,16 @@ namespace AvatarSDK.MetaPerson.Loader
 			var material = GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
 			material.SetTexture("_EmissionMap", material.mainTexture);
 			return material;
+		}
+
+		protected virtual UnityEngine.Material GenerateBeardMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
+		}
+
+		protected virtual UnityEngine.Material GeneratePropsMaterial(UnityEngine.Material templateMaterial, MaterialBase gltfMaterial, IGltfReadable gltf, bool useMetallicRoughness = true)
+		{
+			return GenerateMaterial(templateMaterial, gltfMaterial, gltf, useMetallicRoughness);
 		}
 
 		protected virtual void ConfigureMeshRenderer(SkinnedMeshRenderer meshRenderer, AvatarPart avatarPart)

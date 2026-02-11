@@ -36,7 +36,9 @@ namespace AvatarSDK.MetaPerson.Loader
 			{ AvatarPart.OutfitShoes, "outfit_shoes" },
 			{ AvatarPart.Hat, "hat" },
 			{ AvatarPart.Earrings, "earring" },
-			{ AvatarPart.Necklace, "necklace" }
+			{ AvatarPart.Necklace, "necklace" },
+			{ AvatarPart.Beard, "beard"},
+			{ AvatarPart.Props, "props"}
 		};
 
 		public static string GetAvatarPartName(AvatarPart part)
@@ -81,6 +83,16 @@ namespace AvatarSDK.MetaPerson.Loader
 		public static bool IsJewelry(string name)
 		{
 			return name == GetAvatarPartName(AvatarPart.Earrings) || name == GetAvatarPartName(AvatarPart.Necklace);
+		}
+
+		public static bool IsBeard(string name)
+		{
+			return name == GetAvatarPartName(AvatarPart.Beard);
+		}
+
+		public static bool IsProps(string name)
+		{
+			return name == GetAvatarPartName(AvatarPart.Props);
 		}
 	}
 }
